@@ -1,10 +1,7 @@
-package org.example.parsing;
-
-import org.example.*;
+package org.example;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.example.Direction;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -35,7 +32,7 @@ class PlateauTest {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
-        Rover testRover = new Rover();
+        Rover testRover = new Rover(testPlateau);
         Position testPosition = null;
 
         Plateau expectedPlateau = new Plateau(testPlateauSize);
@@ -53,7 +50,7 @@ class PlateauTest {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
-        Rover testRover = new Rover();
+        Rover testRover = new Rover(testPlateau);
         Position testPosition = new Position(1,2, Direction.N);
 
         //Act
@@ -71,7 +68,7 @@ class PlateauTest {
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
 
-        Rover testRover = new Rover();
+        Rover testRover = new Rover(testPlateau);
 
         Position testPosition1 = new Position(1,2, Direction.N);
         Position testPosition2 = new Position(2,3, Direction.N);
@@ -93,9 +90,9 @@ class PlateauTest {
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
 
-        Rover testRover1 = new Rover();
-        Rover testRover2 = new Rover();
-        Rover testRover3 = new Rover();
+        Rover testRover1 = new Rover(testPlateau);
+        Rover testRover2 = new Rover(testPlateau);
+        Rover testRover3 = new Rover(testPlateau);
 
         Position testPosition1 = new Position(1,2, Direction.N);
         Position testPosition2 = new Position(2,3, Direction.N);
@@ -119,7 +116,7 @@ class PlateauTest {
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
 
-        Rover testRover = new Rover();
+        Rover testRover = new Rover(testPlateau);
         Position testPosition = new Position(1,2, Direction.N);
 
         Rover nullRover = null;
@@ -143,10 +140,10 @@ class PlateauTest {
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
 
-        Rover testRover1 = new Rover();
+        Rover testRover1 = new Rover(testPlateau);
         Position testPosition1 = new Position(1,2, Direction.N);
 
-        Rover testRover2 = new Rover();
+        Rover testRover2 = new Rover(testPlateau);
 
         Plateau expectedPlateau = new Plateau(testPlateauSize);
         expectedPlateau.addItemToPlateau(testRover1, testPosition1);
@@ -167,10 +164,10 @@ class PlateauTest {
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
 
-        Rover testRover1 = new Rover();
+        Rover testRover1 = new Rover(testPlateau);
         Position testPosition1 = new Position(1,2, Direction.N);
 
-        Rover testRover2 = new Rover();
+        Rover testRover2 = new Rover(testPlateau);
         Position testPosition2 = new Position(3,4, Direction.N);
 
         Plateau expectedPlateau = new Plateau(testPlateauSize);
@@ -194,10 +191,10 @@ class PlateauTest {
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
 
-        Rover testRover1 = new Rover();
+        Rover testRover1 = new Rover(testPlateau);
         Position testPosition1 = new Position(1,2, Direction.N);
 
-        Rover testRover2 = new Rover();
+        Rover testRover2 = new Rover(testPlateau);
         Position testPosition2 = new Position(3,4, Direction.N);
 
         Plateau expectedPlateau = new Plateau(testPlateauSize);
@@ -222,16 +219,16 @@ class PlateauTest {
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
 
-        Rover testRover1 = new Rover();
+        Rover testRover1 = new Rover(testPlateau);
         Position testPosition1 = new Position(1,2, Direction.N);
 
-        Rover testRover2 = new Rover();
+        Rover testRover2 = new Rover(testPlateau);
         Position testPosition2 = new Position(3,4, Direction.N);
 
-        Rover testRover3 = new Rover();
+        Rover testRover3 = new Rover(testPlateau);
         Position testPosition3 = new Position(3,4, Direction.N);
 
-        Rover testRover4 = new Rover();
+        Rover testRover4 = new Rover(testPlateau);
         Position testPosition4 = new Position(3,4, Direction.N);
 
         Plateau expectedPlateau = new Plateau(testPlateauSize);
