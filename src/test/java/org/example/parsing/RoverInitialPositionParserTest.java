@@ -344,12 +344,14 @@ class RoverInitialPositionParserTest {
         Direction result1 = testParser.extractDirection("  1 2 N");
         Direction result2 = testParser.extractDirection("10  20  E");
         Direction result3 = testParser.extractDirection("101 202  S   ");
+        Direction result4 = testParser.extractDirection("   1010 2020  W   ");
 
         //Assert
         assertAll(
                 () -> assertEquals(Direction.N, result1),
                 () -> assertEquals(Direction.E, result2),
-                () -> assertEquals(Direction.S, result3)
+                () -> assertEquals(Direction.S, result3),
+                () -> assertEquals(Direction.W, result4)
         );
     }
 
@@ -363,12 +365,16 @@ class RoverInitialPositionParserTest {
         Direction result1 = testParser.extractDirection("1 2 n");
         Direction result2 = testParser.extractDirection("10 20 e");
         Direction result3 = testParser.extractDirection("101 202 s");
+        Direction result4 = testParser.extractDirection("101 202 w");
+
 
         //Assert
         assertAll(
                 () -> assertEquals(Direction.N, result1),
                 () -> assertEquals(Direction.E, result2),
-                () -> assertEquals(Direction.S, result3)
+                () -> assertEquals(Direction.S, result3),
+                () -> assertEquals(Direction.W, result4)
+
         );
     }
 
@@ -382,12 +388,14 @@ class RoverInitialPositionParserTest {
         Direction result1 = testParser.extractDirection("1 2 N");
         Direction result2 = testParser.extractDirection("10 20 E");
         Direction result3 = testParser.extractDirection("101 202 S");
+        Direction result4 = testParser.extractDirection("10 20 W");
 
         //Assert
         assertAll(
                 () -> assertEquals(Direction.N, result1),
                 () -> assertEquals(Direction.E, result2),
-                () -> assertEquals(Direction.S, result3)
+                () -> assertEquals(Direction.S, result3),
+                () -> assertEquals(Direction.W, result4)
         );
     }
 }
