@@ -1,11 +1,6 @@
-package org.example.parsing;
+package org.example;
 
-import org.example.PlateauSize;
-import org.example.Position;
-
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
 public class Plateau {
@@ -44,5 +39,9 @@ public class Plateau {
         } else {
             System.out.println("cannot remove item because it does not exist on the plateau");
         }
+    }
+
+    public Map<Plateauable, Position> getPlateauItems() {
+        return plateauItems;
     }
 }
