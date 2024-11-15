@@ -8,7 +8,7 @@ import static org.junit.jupiter.api.Assertions.*;
 class RoverTest {
 
     @Test
-    @DisplayName("update position if used singly")
+    @DisplayName("move update position if used singly")
     void testMoveSingly() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5, 5);
@@ -28,11 +28,6 @@ class RoverTest {
         testPlateau.addRoverToPlateau(testRover3, testPosition3);
         testPlateau.addRoverToPlateau(testRover4, testPosition4);
 
-        Position expectedPosition1 = new Position(1,2,Direction.N);
-        Position expectedPosition2 = new Position(3,1,Direction.E);
-        Position expectedPosition3 = new Position(2,1,Direction.S);
-        Position expectedPosition4 = new Position(4,2,Direction.W);
-
         //Act
         testRover1.move(testPlateau);
         testRover2.move(testPlateau);
@@ -41,15 +36,26 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(expectedPosition1, testPlateau.getPlateauRoverPositions().get(testRover1)),
-                () -> assertEquals(expectedPosition2, testPlateau.getPlateauRoverPositions().get(testRover2)),
-                () -> assertEquals(expectedPosition3, testPlateau.getPlateauRoverPositions().get(testRover3)),
-                () -> assertEquals(expectedPosition4, testPlateau.getPlateauRoverPositions().get(testRover4))
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+
+                () -> assertEquals(5, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.E, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+
+                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.W, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
         );
     }
 
     @Test
-    @DisplayName("update position if used multiple times")
+    @DisplayName("move update position if used multiple times")
     void testMoveMultiple() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(10, 10);
@@ -69,11 +75,6 @@ class RoverTest {
         testPlateau.addRoverToPlateau(testRover3, testPosition3);
         testPlateau.addRoverToPlateau(testRover4, testPosition4);
 
-        Position expectedPosition1 = new Position(1,3,Direction.N);
-        Position expectedPosition2 = new Position(5,2,Direction.E);
-        Position expectedPosition3 = new Position(3,4,Direction.S);
-        Position expectedPosition4 = new Position(2,3,Direction.W);
-
         //Act
         testRover1.move(testPlateau);
         testRover1.move(testPlateau);
@@ -95,15 +96,26 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(expectedPosition1, testPlateau.getPlateauRoverPositions().get(testRover1)),
-                () -> assertEquals(expectedPosition2, testPlateau.getPlateauRoverPositions().get(testRover2)),
-                () -> assertEquals(expectedPosition3, testPlateau.getPlateauRoverPositions().get(testRover3)),
-                () -> assertEquals(expectedPosition4, testPlateau.getPlateauRoverPositions().get(testRover4))
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+
+                () -> assertEquals(5, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.E, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
+                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.W, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
         );
     }
 
     @Test
-    @DisplayName("does not update position beyond edge of the plateau")
+    @DisplayName("move does not update position beyond edge of the plateau")
     void testMoveBeyondEdge() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(10, 10);
@@ -114,7 +126,7 @@ class RoverTest {
         Rover testRover2 = new Rover();
         Position testPosition2 = new Position(9, 2, Direction.E);
         Rover testRover3 = new Rover();
-        Position testPosition3 = new Position(8, 3, Direction.S);
+        Position testPosition3 = new Position(8, 2, Direction.S);
         Rover testRover4 = new Rover();
         Position testPosition4 = new Position(2, 3, Direction.W);
 
@@ -122,11 +134,6 @@ class RoverTest {
         testPlateau.addRoverToPlateau(testRover2, testPosition2);
         testPlateau.addRoverToPlateau(testRover3, testPosition3);
         testPlateau.addRoverToPlateau(testRover4, testPosition4);
-
-        Position expectedPosition1 = new Position(1,10,Direction.N);
-        Position expectedPosition2 = new Position(10,2,Direction.E);
-        Position expectedPosition3 = new Position(8,4,Direction.S);
-        Position expectedPosition4 = new Position(1,3,Direction.W);
 
         //Act
         testRover1.move(testPlateau);
@@ -145,15 +152,26 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(expectedPosition1, testPlateau.getPlateauRoverPositions().get(testRover1)),
-                () -> assertEquals(expectedPosition2, testPlateau.getPlateauRoverPositions().get(testRover2)),
-                () -> assertEquals(expectedPosition3, testPlateau.getPlateauRoverPositions().get(testRover3)),
-                () -> assertEquals(expectedPosition4, testPlateau.getPlateauRoverPositions().get(testRover4))
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
+                () -> assertEquals(10, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+
+                () -> assertEquals(10, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.E, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+
+                () -> assertEquals(8, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
+                () -> assertEquals(0, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+
+                () -> assertEquals(0, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.W, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
         );
     }
 
     @Test
-    @DisplayName("update direction if used singly")
+    @DisplayName("turnLeft update direction if used singly")
     void testTurnLeftSingly() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5, 5);
@@ -173,11 +191,6 @@ class RoverTest {
         testPlateau.addRoverToPlateau(testRover3, testPosition3);
         testPlateau.addRoverToPlateau(testRover4, testPosition4);
 
-        Position expectedPosition1 = new Position(1,1,Direction.W);
-        Position expectedPosition2 = new Position(2,2,Direction.S);
-        Position expectedPosition3 = new Position(3,3,Direction.E);
-        Position expectedPosition4 = new Position(4,4,Direction.N);
-
         //Act
         testRover1.turnLeft(testPlateau);
         testRover2.turnLeft(testPlateau);
@@ -186,15 +199,26 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(expectedPosition1, testPlateau.getPlateauRoverPositions().get(testRover1)),
-                () -> assertEquals(expectedPosition2, testPlateau.getPlateauRoverPositions().get(testRover2)),
-                () -> assertEquals(expectedPosition3, testPlateau.getPlateauRoverPositions().get(testRover3)),
-                () -> assertEquals(expectedPosition4, testPlateau.getPlateauRoverPositions().get(testRover4))
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.W, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.E, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+
+                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
+                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
         );
     }
 
     @Test
-    @DisplayName("update direction if used multiple times")
+    @DisplayName("turnLeft update direction if used multiple times")
     void testTurnLeftMultiple() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5, 5);
@@ -214,11 +238,6 @@ class RoverTest {
         testPlateau.addRoverToPlateau(testRover3, testPosition3);
         testPlateau.addRoverToPlateau(testRover4, testPosition4);
 
-        Position expectedPosition1 = new Position(1,1,Direction.S);
-        Position expectedPosition2 = new Position(2,2,Direction.S);
-        Position expectedPosition3 = new Position(3,3,Direction.S);
-        Position expectedPosition4 = new Position(4,4,Direction.S);
-
         //Act
         testRover1.turnLeft(testPlateau);
         testRover1.turnLeft(testPlateau);
@@ -240,15 +259,26 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(expectedPosition1, testPlateau.getPlateauRoverPositions().get(testRover1)),
-                () -> assertEquals(expectedPosition2, testPlateau.getPlateauRoverPositions().get(testRover2)),
-                () -> assertEquals(expectedPosition3, testPlateau.getPlateauRoverPositions().get(testRover3)),
-                () -> assertEquals(expectedPosition4, testPlateau.getPlateauRoverPositions().get(testRover4))
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+
+                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
+                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
         );
     }
 
     @Test
-    @DisplayName("update direction if used singly")
+    @DisplayName("turnRight update direction if used singly")
     void testTurnRightSingly() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5, 5);
@@ -268,11 +298,6 @@ class RoverTest {
         testPlateau.addRoverToPlateau(testRover3, testPosition3);
         testPlateau.addRoverToPlateau(testRover4, testPosition4);
 
-        Position expectedPosition1 = new Position(1,1,Direction.E);
-        Position expectedPosition2 = new Position(2,2,Direction.S);
-        Position expectedPosition3 = new Position(3,3,Direction.W);
-        Position expectedPosition4 = new Position(4,4,Direction.N);
-
         //Act
         testRover1.turnRight(testPlateau);
         testRover2.turnRight(testPlateau);
@@ -281,15 +306,26 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(expectedPosition1, testPlateau.getPlateauRoverPositions().get(testRover1)),
-                () -> assertEquals(expectedPosition2, testPlateau.getPlateauRoverPositions().get(testRover2)),
-                () -> assertEquals(expectedPosition3, testPlateau.getPlateauRoverPositions().get(testRover3)),
-                () -> assertEquals(expectedPosition4, testPlateau.getPlateauRoverPositions().get(testRover4))
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.E, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.W, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+
+                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
+                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
         );
     }
 
     @Test
-    @DisplayName("update direction if used multiple times")
+    @DisplayName("turnRight update direction if used multiple times")
     void testTurnRightMultiple() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5, 5);
@@ -309,11 +345,6 @@ class RoverTest {
         testPlateau.addRoverToPlateau(testRover3, testPosition3);
         testPlateau.addRoverToPlateau(testRover4, testPosition4);
 
-        Position expectedPosition1 = new Position(1,1,Direction.S);
-        Position expectedPosition2 = new Position(2,2,Direction.N);
-        Position expectedPosition3 = new Position(3,3,Direction.S);
-        Position expectedPosition4 = new Position(4,4,Direction.N);
-
         //Act
         testRover1.turnRight(testPlateau);
         testRover1.turnRight(testPlateau);
@@ -335,10 +366,21 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(expectedPosition1, testPlateau.getPlateauRoverPositions().get(testRover1)),
-                () -> assertEquals(expectedPosition2, testPlateau.getPlateauRoverPositions().get(testRover2)),
-                () -> assertEquals(expectedPosition3, testPlateau.getPlateauRoverPositions().get(testRover3)),
-                () -> assertEquals(expectedPosition4, testPlateau.getPlateauRoverPositions().get(testRover4))
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+
+                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
+                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
         );
     }
 }

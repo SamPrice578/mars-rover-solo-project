@@ -116,4 +116,8 @@ public class Plateau {
     public Map<Rover, Position> getPlateauRoverPositions() {
         return plateauRoverPositions;
     }
+
+    public PlateauSize getPlateauSize() {
+        return plateauSize;
+    }
 }
