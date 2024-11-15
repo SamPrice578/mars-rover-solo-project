@@ -305,8 +305,8 @@ class RoverInitialPositionParserTest {
     //ExtractDirection
 
     @Test
-    @DisplayName("returns INVALID when passed null input string")
-    public void testExtractYDirectionWhenNull() {
+    @DisplayName("returns N (default Direction) when passed null input string")
+    public void testExtractDirectionWhenNull() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
 
@@ -314,11 +314,11 @@ class RoverInitialPositionParserTest {
         Direction result = testParser.extractDirection(null);
 
         //Assert
-        assertEquals(Direction.INVALID, result);
+        assertEquals(Direction.N, result);
     }
 
     @Test
-    @DisplayName("returns INVALID when passed empty input string")
+    @DisplayName("returns N (default Direction) when passed empty input string")
     public void testExtractDirectionWhenEmpty() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -327,15 +327,15 @@ class RoverInitialPositionParserTest {
         Direction result = testParser.extractDirection("");
 
         //Assert
-        assertEquals(Direction.INVALID, result);
+        assertEquals(Direction.N, result);
     }
 
     @Test
-    @DisplayName("returns INVALID when passed input string with only Coordinates")
+    @DisplayName("returns N (default Direction) when passed input string with only Coordinates")
     public void testExtractDirectionWhenOnlyCoordinates() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
-        Direction expectedResult = Direction.INVALID;
+        Direction expectedResult = Direction.N;
         //Act
         Direction result1 = testParser.extractDirection("1");
         Direction result2 = testParser.extractDirection(" 1");
@@ -353,11 +353,11 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns INVALID when passed input string with unrecognised position")
+    @DisplayName("returns N (default Direction) when passed input string with unrecognised position")
     public void testExtractYCoordinateWhenUnrecognised() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
-        Direction expectedResult = Direction.INVALID;
+        Direction expectedResult = Direction.N;
 
         //Act
         Direction result1 = testParser.extractDirection("1 2 a");
@@ -365,7 +365,7 @@ class RoverInitialPositionParserTest {
         Direction result3 = testParser.extractDirection("1 2 !");
         Direction result4 = testParser.extractDirection("1 2 NE");
         Direction result5 = testParser.extractDirection("1 2 EW");
-        Direction result6 = testParser.extractDirection("1 2 # N");
+        Direction result6 = testParser.extractDirection("1 2 # N12");
 
         //Assert
         assertAll(
@@ -409,6 +409,25 @@ class RoverInitialPositionParserTest {
         Direction result1 = testParser.extractDirection("1 2 N 3");
         Direction result2 = testParser.extractDirection("10 20 E 40 50");
         Direction result3 = testParser.extractDirection("101 201 S a 301 c");
+
+        //Assert
+        assertAll(
+                () -> assertEquals(Direction.N, result1),
+                () -> assertEquals(Direction.E, result2),
+                () -> assertEquals(Direction.S, result3)
+        );
+    }
+
+    @Test
+    @DisplayName("returns correct Direction when passed String with too many characters")
+    public void testExtractDirectionWhenTooFewCoordinates() {
+        //Arrange
+        RoverInitialPositionParser testParser = new RoverInitialPositionParser();
+
+        //Act
+        Direction result1 = testParser.extractDirection("1 N");
+        Direction result2 = testParser.extractDirection("10 E");
+        Direction result3 = testParser.extractDirection("S");
 
         //Assert
         assertAll(
