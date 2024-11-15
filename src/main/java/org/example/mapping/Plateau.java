@@ -1,4 +1,7 @@
-package org.example;
+package org.example.mapping;
+
+import org.example.parsing.Direction;
+import org.example.rovers.Rover;
 
 import java.util.HashMap;
 import java.util.Map;

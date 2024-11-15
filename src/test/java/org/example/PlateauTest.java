@@ -2,11 +2,13 @@ package org.example;
 
 import static org.junit.jupiter.api.Assertions.*;
 
+import org.example.mapping.Plateau;
+import org.example.mapping.PlateauSize;
+import org.example.mapping.Position;
+import org.example.rovers.Rover;
+import org.example.parsing.Direction;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-
-import java.util.HashMap;
-import java.util.Map;
 
 
 class PlateauTest {

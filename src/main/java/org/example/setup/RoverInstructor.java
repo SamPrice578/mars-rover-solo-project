@@ -1,6 +1,9 @@
-package org.example;
+package org.example.setup;
 
-import java.sql.Array;
+import org.example.parsing.Instruction;
+import org.example.mapping.Plateau;
+import org.example.rovers.Rover;
+
 import java.util.ArrayList;
 
 public class RoverInstructor {

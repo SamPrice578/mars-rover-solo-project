@@ -1,8 +1,11 @@
 package org.example;
 
-import org.example.parsing.PlateauInitialisationParser;
-import org.example.parsing.RoverInitialPositionParser;
-import org.example.parsing.RoverInstructionParser;
+import UI.UI;
+import org.example.mapping.Plateau;
+import org.example.rovers.Rover;
+import org.example.parsing.*;
+import org.example.setup.PlateauInitialiser;
+import org.example.setup.RoverInstructor;
 
 import java.util.ArrayList;
 import java.util.Scanner;

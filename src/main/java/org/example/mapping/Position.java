@@ -1,4 +1,6 @@
-package org.example;
+package org.example.mapping;
+
+import org.example.parsing.Direction;
 
 public class Position {
     private int x;

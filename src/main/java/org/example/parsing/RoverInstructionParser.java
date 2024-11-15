@@ -1,10 +1,6 @@
 package org.example.parsing;
 
-import org.example.Direction;
-import org.example.Instruction;
-
 import java.util.ArrayList;
-import java.util.List;
 
 public class RoverInstructionParser {
 

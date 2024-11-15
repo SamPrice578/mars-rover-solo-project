@@ -1,7 +1,5 @@
 package org.example.parsing;
 
-import org.example.Direction;
-
 public class RoverInitialPositionParser {
     public static int extractXCoordinate(String input){
 

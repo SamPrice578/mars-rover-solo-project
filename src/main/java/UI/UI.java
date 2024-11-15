@@ -1,5 +1,7 @@
-package org.example;
+package UI;
 
+import org.example.parsing.Direction;
+import org.example.parsing.Instruction;
 import org.example.parsing.PlateauInitialisationParser;
 import org.example.parsing.RoverInitialPositionParser;
 import org.example.parsing.RoverInstructionParser;

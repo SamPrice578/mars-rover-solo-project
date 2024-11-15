@@ -1,5 +1,12 @@
 package org.example;
 
+import org.example.mapping.Plateau;
+import org.example.mapping.PlateauSize;
+import org.example.mapping.Position;
+import org.example.rovers.Rover;
+import org.example.parsing.Direction;
+import org.example.parsing.Instruction;
+import org.example.setup.RoverInstructor;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

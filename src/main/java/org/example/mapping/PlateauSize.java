@@ -1,4 +1,4 @@
-package org.example;
+package org.example.mapping;
 
 public class PlateauSize {
     private int x;

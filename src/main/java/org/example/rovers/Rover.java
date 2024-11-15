@@ -1,6 +1,10 @@
-package org.example;
+package org.example.rovers;
 
-public class Rover implements Plateauable {
+import org.example.mapping.Plateau;
+import org.example.mapping.Position;
+import org.example.parsing.Direction;
+
+public class Rover {
 
     public void move(Plateau plateau) {
 

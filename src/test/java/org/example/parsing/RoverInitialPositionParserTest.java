@@ -2,7 +2,6 @@ package org.example.parsing;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-import org.example.Direction;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
