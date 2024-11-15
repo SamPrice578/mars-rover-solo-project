@@ -8,7 +8,7 @@ import org.junit.jupiter.api.Test;
 
 class RoverInitialPositionParserTest {
     @Test
-    @DisplayName("returns 0 when passed null input string")
+    @DisplayName("extractXCoordinate returns 0 when passed null input string")
     public void testExtractXCoordinateWhenNull() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -22,7 +22,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns 0 when passed empty input string")
+    @DisplayName("extractXCoordinate returns 0 when passed empty input string")
     public void testExtractXCoordinateWhenEmpty() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -36,7 +36,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("return int which ignores unrecognised strings")
+    @DisplayName("extractXCoordinate return int which ignores unrecognised strings")
     public void testPExtractXCoordinateWhenNonDigit() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -57,7 +57,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns correct int when passed String with too many characters")
+    @DisplayName("extractXCoordinate returns correct int when passed String with too many characters")
     public void testExtractXCoordinateWhenTooManyChars() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -76,7 +76,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns integer which ignores unrecognised strings")
+    @DisplayName("extractXCoordinate returns integer which ignores unrecognised strings")
     public void testExtractXDimensionWhenUnrecognised() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -97,7 +97,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns integer which ignores negative integers")
+    @DisplayName("extractXCoordinate returns integer which ignores negative integers")
     public void testExtractXDimensionWhenNegative() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -118,7 +118,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns correct int when passed appropriate string with too many spaces")
+    @DisplayName("extractXCoordinate returns correct int when passed appropriate string with too many spaces")
     public void testExtractXCoordinateWhenTooManySpaces() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -137,7 +137,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns correct int when passed appropriate string")
+    @DisplayName("extractXCoordinate returns correct int when passed appropriate string")
     public void testExtractXCoordinateWhenAppropriate() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -158,7 +158,7 @@ class RoverInitialPositionParserTest {
     //ExtractYCoordinate
 
     @Test
-    @DisplayName("returns 0 when passed null input string")
+    @DisplayName("extractXCoordinate returns 0 when passed null input string")
     public void testExtractYCoordinateWhenNull() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -172,7 +172,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns 0 when passed empty input string")
+    @DisplayName("extractXCoordinate returns 0 when passed empty input string")
     public void testExtractYCoordinateWhenEmpty() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -186,7 +186,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns 0 when passed input string with one Coordinate")
+    @DisplayName("extractYCoordinate returns 0 when passed input string with one Coordinate")
     public void testExtractYCoordinateWhenOneCoordinate() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -204,16 +204,16 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("return int which ignores unrecognised strings")
+    @DisplayName("extractYCoordinate return int which ignores unrecognised strings")
     public void testPExtractYCoordinateWhenNonDigit() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
 
         //Act
-        int result1 = testParser.extractXCoordinate("a b 1 2 N");
-        int result2 = testParser.extractXCoordinate(") 10 aa 20a 20 N");
-        int result3 = testParser.extractXCoordinate("a !! 100 @ 200 N $");
-        int result4 = testParser.extractXCoordinate("a bb ### 1000 2000 # N %% %");
+        int result1 = testParser.extractYCoordinate("a b 1 2 N");
+        int result2 = testParser.extractYCoordinate(") 10 aa 20a 20 N");
+        int result3 = testParser.extractYCoordinate("a !! 100 @ 200 N $");
+        int result4 = testParser.extractYCoordinate("a bb ### 1000 2000 # N %% %");
 
         //Assert
         assertAll(
@@ -225,7 +225,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns integer which ignores negative integers")
+    @DisplayName("extractYCoordinate returns integer which ignores negative integers")
     public void testExtractYDimensionWhenNegative() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -246,7 +246,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns correct int when passed String with too many characters")
+    @DisplayName("extractYCoordinate returns correct int when passed String with too many characters")
     public void testExtractYCoordinateWhenTooManyChars() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -265,15 +265,15 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns correct int when passed appropriate string with too many spaces")
+    @DisplayName("extractYCoordinate returns correct int when passed appropriate string with too many spaces")
     public void testExtractYCoordinateWhenTooManySpaces() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
 
         //Act
-        int result1 = testParser.extractXCoordinate(" 1 2 N");
-        int result2 = testParser.extractXCoordinate("10  20  E");
-        int result3 = testParser.extractXCoordinate("101 202  S   ");
+        int result1 = testParser.extractYCoordinate(" 1 2 N");
+        int result2 = testParser.extractYCoordinate("10  20  E");
+        int result3 = testParser.extractYCoordinate("101 202  S   ");
 
         //Assert
         assertAll(
@@ -284,15 +284,15 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns correct int when passed appropriate string")
+    @DisplayName("extractYCoordinate returns correct int when passed appropriate string")
     public void testExtractYCoordinateWhenAppropriate() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
 
         //Act
-        int result1 = testParser.extractXCoordinate("1 2 N");
-        int result2 = testParser.extractXCoordinate("10 20 E");
-        int result3 = testParser.extractXCoordinate("101 202 S");
+        int result1 = testParser.extractYCoordinate("1 2 N");
+        int result2 = testParser.extractYCoordinate("10 20 E");
+        int result3 = testParser.extractYCoordinate("101 202 S");
 
         //Assert
         assertAll(
@@ -305,7 +305,7 @@ class RoverInitialPositionParserTest {
     //ExtractDirection
 
     @Test
-    @DisplayName("returns N (default Direction) when passed null input string")
+    @DisplayName("extractDirection returns N (default Direction) when passed null input string")
     public void testExtractDirectionWhenNull() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -318,7 +318,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns N (default Direction) when passed empty input string")
+    @DisplayName("extractDirection returns N (default Direction) when passed empty input string")
     public void testExtractDirectionWhenEmpty() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -331,7 +331,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns N (default Direction) when passed input string with only Coordinates")
+    @DisplayName("extractDirection returns N (default Direction) when passed input string with only Coordinates")
     public void testExtractDirectionWhenOnlyCoordinates() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -353,7 +353,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns N (default Direction) when passed input string with unrecognised position")
+    @DisplayName("extractDirection returns N (default Direction) when passed input string with unrecognised position")
     public void testExtractYCoordinateWhenUnrecognised() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -379,7 +379,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("return int which ignores unrecognised strings")
+    @DisplayName("extractDirection return int which ignores unrecognised strings")
     public void testExtractDirectionWhenNonDirection() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -400,7 +400,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns correct Direction when passed String with too many characters")
+    @DisplayName("extractDirection returns correct Direction when passed String with too many characters")
     public void testExtractDirectionWhenTooManyChars() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -419,7 +419,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns correct Direction when passed String with too many characters")
+    @DisplayName("extractDirection returns correct Direction when passed String with too many characters")
     public void testExtractDirectionWhenTooFewCoordinates() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -438,7 +438,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns correct Direction when passed appropriate string with too many spaces")
+    @DisplayName("extractDirection returns correct Direction when passed appropriate string with too many spaces")
     public void testExtractDirectionTooManySpaces() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -459,7 +459,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns correct Direction when passed appropriate string with incorrect case")
+    @DisplayName("extractDirection returns correct Direction when passed appropriate string with incorrect case")
     public void testExtractDirectionIncorrectCase() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
@@ -482,7 +482,7 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
-    @DisplayName("returns correct Direction when passed appropriate string")
+    @DisplayName("extractDirection returns correct Direction when passed appropriate string")
     public void testExtractDirectionWhenAppropriate() {
         //Arrange
         RoverInitialPositionParser testParser = new RoverInitialPositionParser();
