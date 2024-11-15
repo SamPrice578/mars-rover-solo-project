@@ -35,7 +35,7 @@ class PlateauInitialisationParserTest {
     }
 
     @Test
-    @DisplayName("returns ArrayList which ignores unrecognised strings")
+    @DisplayName("returns integer which ignores unrecognised strings")
     public void testExtractXDimensionWhenUnrecognised() {
         //Arrange
         PlateauInitialisationParser testParser = new PlateauInitialisationParser();
@@ -46,6 +46,28 @@ class PlateauInitialisationParserTest {
         int result2 = testParser.extractXDimension(") 10 aa 20");
         int result3 = testParser.extractXDimension("a !! 100 @ 200");
         int result4 = testParser.extractXDimension("a bb ### 1000 2000 #");
+
+        //Assert
+        assertAll(
+                () -> assertEquals(1, result1),
+                () -> assertEquals(10, result2),
+                () -> assertEquals(100, result3),
+                () -> assertEquals(1000, result4)
+        );
+    }
+
+    @Test
+    @DisplayName("returns integer which ignores negative integers")
+    public void testExtractXDimensionWhenNegative() {
+        //Arrange
+        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
+        int expectedResult = 0;
+
+        //Act
+        int result1 = testParser.extractXDimension("-1 1 2");
+        int result2 = testParser.extractXDimension("-2 10 -33 20");
+        int result3 = testParser.extractXDimension("-4 -55 100 -22 200");
+        int result4 = testParser.extractXDimension("-66 -7 -1000 1000 2000 -55");
 
         //Assert
         assertAll(
@@ -162,7 +184,7 @@ class PlateauInitialisationParserTest {
     }
 
     @Test
-    @DisplayName("returns ArrayList which ignores unrecognised strings")
+    @DisplayName("returns integer which ignores unrecognised strings")
     public void testExtractYDimensionWhenUnrecognised() {
         //Arrange
         PlateauInitialisationParser testParser = new PlateauInitialisationParser();
@@ -174,6 +196,27 @@ class PlateauInitialisationParserTest {
         int result3 = testParser.extractYDimension("a !! 100 @ 200");
         int result4 = testParser.extractYDimension("a bb ### 1000 2000 #");
 
+        //Assert
+        assertAll(
+                () -> assertEquals(2, result1),
+                () -> assertEquals(20, result2),
+                () -> assertEquals(200, result3),
+                () -> assertEquals(2000, result4)
+        );
+    }
+
+    @Test
+    @DisplayName("returns integer which ignores negative integers")
+    public void testExtractYDimensionWhenNegative() {
+        //Arrange
+        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
+        int expectedResult = 0;
+
+        //Act
+        int result1 = testParser.extractYDimension("-1 1 2");
+        int result2 = testParser.extractYDimension("-2 10 -33 20");
+        int result3 = testParser.extractYDimension("-4 -55 100 -22 200");
+        int result4 = testParser.extractYDimension("-66 -7 -1000 1000 2000 -55");
 
         //Assert
         assertAll(
