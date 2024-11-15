@@ -29,6 +29,12 @@ public class Plateau {
         this.plateauItems.put(item, position);
     }
 
+    public void updateItemXCoordinate(Plateauable item, int newX) {}
+
+    public void updateItemYCoordinate(Plateauable item, int newY) {}
+
+    public void updateItemDirection(Plateauable item, Direction newDirection) {}
+
     public void removeItemFromPlateau(Plateauable item) {
         if (item == null) {
             System.out.println("Cannot remove null item from plateau");
