@@ -39,12 +39,28 @@ class RoverInstructionParserTest {
     }
 
     @Test
+    @DisplayName("returns empty ArrayList when passed blank input string")
+    public void testParseRoverInstructionWhenBlank() {
+        //Arrange
+        RoverInstructionParser testParser = new RoverInstructionParser();
+        ArrayList<Instruction> expectedResult = new ArrayList<>();
+
+        //Act
+        ArrayList<Instruction> result1 = testParser.parseRoverInstruction(" ");
+        ArrayList<Instruction> result2 = testParser.parseRoverInstruction("    ");
+
+        //Assert
+        assertEquals(expectedResult, result1);
+    }
+
+    @Test
     @DisplayName("returns ArrayList which ignores unrecognised instruction")
     public void testParseRoverInstructionWhenUnrecognised() {
         //Arrange
         RoverInstructionParser testParser = new RoverInstructionParser();
 
         ArrayList<Instruction> expectedResult1 = new ArrayList<>();
+
         ArrayList<Instruction> expectedResult2 = new ArrayList<>();
         expectedResult2.add(Instruction.L);
         expectedResult2.add(Instruction.M);
@@ -153,6 +169,15 @@ class RoverInstructionParserTest {
         //Arrange
         RoverInstructionParser testParser = new RoverInstructionParser();
 
+        ArrayList<Instruction> expectedResult1 = new ArrayList<>();
+        expectedResult1.add(Instruction.L);
+
+        ArrayList<Instruction> expectedResult2 = new ArrayList<>();
+        expectedResult2.add(Instruction.R);
+
+        ArrayList<Instruction> expectedResult3 = new ArrayList<>();
+        expectedResult3.add(Instruction.M);
+
         //Act
         ArrayList<Instruction> result1 = testParser.parseRoverInstruction("L");
         ArrayList<Instruction> result2 = testParser.parseRoverInstruction("R");
@@ -160,9 +185,9 @@ class RoverInstructionParserTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(Instruction.L, result1),
-                () -> assertEquals(Instruction.R, result2),
-                () -> assertEquals(Instruction.M, result3)
+                () -> assertEquals(expectedResult1, result1),
+                () -> assertEquals(expectedResult2, result2),
+                () -> assertEquals(expectedResult3, result3)
         );
     }
 
@@ -198,11 +223,12 @@ class RoverInstructionParserTest {
         expectedResult3.add(Instruction.R);
 
         ArrayList<Instruction> expectedResult4 = new ArrayList<>();
-        expectedResult3.add(Instruction.M);
-        expectedResult3.add(Instruction.M);
-        expectedResult3.add(Instruction.M);
-        expectedResult3.add(Instruction.M);
-        expectedResult3.add(Instruction.M);
+        expectedResult4.add(Instruction.M);
+        expectedResult4.add(Instruction.M);
+        expectedResult4.add(Instruction.M);
+        expectedResult4.add(Instruction.M);
+        expectedResult4.add(Instruction.M);
+        expectedResult4.add(Instruction.M);
 
 
         //Act
