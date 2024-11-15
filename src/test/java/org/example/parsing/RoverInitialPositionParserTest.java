@@ -76,6 +76,48 @@ class RoverInitialPositionParserTest {
     }
 
     @Test
+    @DisplayName("returns integer which ignores unrecognised strings")
+    public void testExtractXDimensionWhenUnrecognised() {
+        //Arrange
+        RoverInitialPositionParser testParser = new RoverInitialPositionParser();
+
+        //Act
+        int result1 = testParser.extractXCoordinate("a b 1 2");
+        int result2 = testParser.extractXCoordinate(") 10 aa 20");
+        int result3 = testParser.extractXCoordinate("a !! 100 @ 200");
+        int result4 = testParser.extractXCoordinate("a bb ### 1000 2000 #");
+
+        //Assert
+        assertAll(
+                () -> assertEquals(1, result1),
+                () -> assertEquals(10, result2),
+                () -> assertEquals(100, result3),
+                () -> assertEquals(1000, result4)
+        );
+    }
+
+    @Test
+    @DisplayName("returns integer which ignores negative integers")
+    public void testExtractXDimensionWhenNegative() {
+        //Arrange
+        RoverInitialPositionParser testParser = new RoverInitialPositionParser();
+
+        //Act
+        int result1 = testParser.extractXCoordinate("-1 1 2");
+        int result2 = testParser.extractXCoordinate("-2 10 -33 20");
+        int result3 = testParser.extractXCoordinate("-4 -55 100 -22 200");
+        int result4 = testParser.extractXCoordinate("-66 -7 -1000 1000 2000 -55");
+
+        //Assert
+        assertAll(
+                () -> assertEquals(1, result1),
+                () -> assertEquals(10, result2),
+                () -> assertEquals(100, result3),
+                () -> assertEquals(1000, result4)
+        );
+    }
+
+    @Test
     @DisplayName("returns correct int when passed appropriate string with too many spaces")
     public void testExtractXCoordinateWhenTooManySpaces() {
         //Arrange
@@ -172,6 +214,27 @@ class RoverInitialPositionParserTest {
         int result2 = testParser.extractXCoordinate(") 10 aa 20a 20 N");
         int result3 = testParser.extractXCoordinate("a !! 100 @ 200 N $");
         int result4 = testParser.extractXCoordinate("a bb ### 1000 2000 # N %% %");
+
+        //Assert
+        assertAll(
+                () -> assertEquals(2, result1),
+                () -> assertEquals(20, result2),
+                () -> assertEquals(200, result3),
+                () -> assertEquals(2000, result4)
+        );
+    }
+
+    @Test
+    @DisplayName("returns integer which ignores negative integers")
+    public void testExtractYDimensionWhenNegative() {
+        //Arrange
+        RoverInitialPositionParser testParser = new RoverInitialPositionParser();
+
+        //Act
+        int result1 = testParser.extractYCoordinate("-1 1 2");
+        int result2 = testParser.extractYCoordinate("-2 10 -33 20");
+        int result3 = testParser.extractYCoordinate("-4 -55 100 -22 200");
+        int result4 = testParser.extractYCoordinate("-66 -7 -1000 1000 2000 -55");
 
         //Assert
         assertAll(
@@ -312,6 +375,27 @@ class RoverInitialPositionParserTest {
                 () -> assertEquals(expectedResult, result4),
                 () -> assertEquals(expectedResult, result5),
                 () -> assertEquals(expectedResult, result6)
+        );
+    }
+
+    @Test
+    @DisplayName("return int which ignores unrecognised strings")
+    public void testExtractDirectionWhenNonDirection() {
+        //Arrange
+        RoverInitialPositionParser testParser = new RoverInitialPositionParser();
+
+        //Act
+        Direction result1 = testParser.extractDirection("a b 1 2 f g N");
+        Direction result2 = testParser.extractDirection(") 10 aa 20a 20 E");
+        Direction result3 = testParser.extractDirection("a !! 100 @ 200 b hello S $");
+        Direction result4 = testParser.extractDirection("a bb ### 1000 oops 2000 # W %% %");
+
+        //Assert
+        assertAll(
+                () -> assertEquals(Direction.N, result1),
+                () -> assertEquals(Direction.E, result2),
+                () -> assertEquals(Direction.S, result3),
+                () -> assertEquals(Direction.W, result4)
         );
     }
 
