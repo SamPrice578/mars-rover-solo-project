@@ -31,7 +31,7 @@ public abstract class UI {
 
             if(confirmInput(scanner)) {
                 System.out.println("Plateau initial dimensions input successfully.");
-
+                System.out.println();
                 return provisionalInput;
             } else {
             }
@@ -67,6 +67,7 @@ public abstract class UI {
 
             if(confirmInput(scanner)) {
                 System.out.println("Rover initial position input successfully.");
+                System.out.println();
                 return provisionalInput;
             } else {
                 break;
@@ -98,6 +99,7 @@ public abstract class UI {
 
             if(confirmInput(scanner)) {
                 System.out.println("Rover instructions input successfully.");
+                System.out.println();
                 return provisionalInput;
             } else {
                 break;
