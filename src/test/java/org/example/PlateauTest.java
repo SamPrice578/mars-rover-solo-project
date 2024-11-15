@@ -12,8 +12,8 @@ import java.util.Map;
 class PlateauTest {
 
     @Test
-    @DisplayName("makes no update when item is null")
-    void testAddItemToPlateauNullItem() {
+    @DisplayName("makes no update when rover is null")
+    void testAddRoverToPlateauNullRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -23,15 +23,15 @@ class PlateauTest {
         Plateau expectedPlateau = new Plateau(testPlateauSize);
 
         //Act
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Assert
-        assertEquals(expectedPlateau.getPlateauItems(), testPlateau.getPlateauItems());
+        assertEquals(expectedPlateau.getPlateauRoverPositions(), testPlateau.getPlateauRoverPositions());
     }
 
     @Test
     @DisplayName("makes no update when position is null")
-    void testAddItemToPlateauNullPosition() {
+    void testAddRoverToPlateauNullPosition() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -41,15 +41,15 @@ class PlateauTest {
         Plateau expectedPlateau = new Plateau(testPlateauSize);
 
         //Act
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Assert
-        assertEquals(expectedPlateau.getPlateauItems(), testPlateau.getPlateauItems());
+        assertEquals(expectedPlateau.getPlateauRoverPositions(), testPlateau.getPlateauRoverPositions());
     }
 
     @Test
-    @DisplayName("updates correctly when passed appropriate item and position")
-    void testAddItemToPlateauAppropriateItemAndPosition() {
+    @DisplayName("updates correctly when passed appropriate rover and position")
+    void testAddRoverToPlateauAppropriateRoverAndPosition() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -57,16 +57,16 @@ class PlateauTest {
         Position testPosition = new Position(1,2, Direction.N);
 
         //Act
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Assert
-        assertEquals(testPlateau.getPlateauItems().get(testRover), testPosition);
+        assertEquals(testPlateau.getPlateauRoverPositions().get(testRover), testPosition);
     }
 
 
     @Test
-    @DisplayName("updates correctly when passed same item with different positions consecutively")
-    void testAddItemToPlateausameItemsDiffferentPositionsConsecutive() {
+    @DisplayName("updates correctly when passed same rover with different positions consecutively")
+    void testAddRoverToPlateauSameRoverDiffferentPositionsConsecutive() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -78,17 +78,17 @@ class PlateauTest {
         Position testPosition3 = new Position(3,4, Direction.N);
 
         //Act
-        testPlateau.addItemToPlateau(testRover, testPosition1);
-        testPlateau.addItemToPlateau(testRover, testPosition2);
-        testPlateau.addItemToPlateau(testRover, testPosition3);
+        testPlateau.addRoverToPlateau(testRover, testPosition1);
+        testPlateau.addRoverToPlateau(testRover, testPosition2);
+        testPlateau.addRoverToPlateau(testRover, testPosition3);
 
         //Assert
-        assertEquals(testPlateau.getPlateauItems().get(testRover), testPosition3);
+        assertEquals(testPlateau.getPlateauRoverPositions().get(testRover), testPosition3);
     }
 
     @Test
-    @DisplayName("updates correctly when passed different items and positions consecutively")
-    void testAddItemToPlateauDifferentItemsAndPositionsConsecutive() {
+    @DisplayName("updates correctly when passed different rovers and positions consecutively")
+    void testAddRoverToPlateauDifferentRoversAndPositionsConsecutive() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -102,21 +102,21 @@ class PlateauTest {
         Position testPosition3 = new Position(3,4, Direction.N);
 
         //Act
-        testPlateau.addItemToPlateau(testRover1, testPosition1);
-        testPlateau.addItemToPlateau(testRover2, testPosition2);
-        testPlateau.addItemToPlateau(testRover3, testPosition3);
+        testPlateau.addRoverToPlateau(testRover1, testPosition1);
+        testPlateau.addRoverToPlateau(testRover2, testPosition2);
+        testPlateau.addRoverToPlateau(testRover3, testPosition3);
 
         //Assert
-        assertEquals(testPlateau.getPlateauItems().get(testRover1), testPosition1);
-        assertEquals(testPlateau.getPlateauItems().get(testRover2), testPosition2);
-        assertEquals(testPlateau.getPlateauItems().get(testRover3), testPosition3);
+        assertEquals(testPlateau.getPlateauRoverPositions().get(testRover1), testPosition1);
+        assertEquals(testPlateau.getPlateauRoverPositions().get(testRover2), testPosition2);
+        assertEquals(testPlateau.getPlateauRoverPositions().get(testRover3), testPosition3);
     }
 
-//    removeItemFromPlateau
+//    removeRoverFromPlateau
 
     @Test
-    @DisplayName("makes no update when item is null")
-    void testRemoveItemFromPlateauNullItem() {
+    @DisplayName("makes no update when rover is null")
+    void testRemoveRoverFromPlateauNullRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -127,20 +127,20 @@ class PlateauTest {
         Rover nullRover = null;
 
         Plateau expectedPlateau = new Plateau(testPlateauSize);
-        expectedPlateau.addItemToPlateau(testRover, testPosition);
+        expectedPlateau.addRoverToPlateau(testRover, testPosition);
 
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Act
-        testPlateau.removeItemFromPlateau(nullRover);
+        testPlateau.removeRoverFromPlateau(nullRover);
 
         //Assert
-        assertEquals(expectedPlateau.getPlateauItems(), testPlateau.getPlateauItems());
+        assertEquals(expectedPlateau.getPlateauRoverPositions(), testPlateau.getPlateauRoverPositions());
     }
 
     @Test
-    @DisplayName("makes no update if item does not exist in plateauItems")
-    void testRemoveItemFromPlateauNonExistentItemItem() {
+    @DisplayName("makes no update if rover does not exist in plateauRoverPositions")
+    void testRemoveRoverFromPlateauMissingRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -151,47 +151,20 @@ class PlateauTest {
         Rover testRover2 = new Rover();
 
         Plateau expectedPlateau = new Plateau(testPlateauSize);
-        expectedPlateau.addItemToPlateau(testRover1, testPosition1);
+        expectedPlateau.addRoverToPlateau(testRover1, testPosition1);
 
-        testPlateau.addItemToPlateau(testRover1, testPosition1);
+        testPlateau.addRoverToPlateau(testRover1, testPosition1);
 
         //Act
-        testPlateau.removeItemFromPlateau(testRover2);
+        testPlateau.removeRoverFromPlateau(testRover2);
 
         //Assert
-        assertEquals(expectedPlateau.getPlateauItems(), testPlateau.getPlateauItems());
+        assertEquals(expectedPlateau.getPlateauRoverPositions(), testPlateau.getPlateauRoverPositions());
     }
 
     @Test
-    @DisplayName("updates correctly when passed appropriate item")
-    void testRemoveItemFromPlateauAppropriateItem() {
-        //Arrange
-        PlateauSize testPlateauSize = new PlateauSize(5,5);
-        Plateau testPlateau = new Plateau(testPlateauSize);
-
-        Rover testRover1 = new Rover();
-        Position testPosition1 = new Position(1,2, Direction.N);
-
-        Rover testRover2 = new Rover();
-        Position testPosition2 = new Position(3,4, Direction.N);
-
-        Plateau expectedPlateau = new Plateau(testPlateauSize);
-        expectedPlateau.addItemToPlateau(testRover1, testPosition1);
-
-        testPlateau.addItemToPlateau(testRover1, testPosition1);
-        testPlateau.addItemToPlateau(testRover2, testPosition2);
-
-        //Act
-        testPlateau.removeItemFromPlateau(testRover2);
-
-        //Assert
-        assertEquals(expectedPlateau.getPlateauItems(), testPlateau.getPlateauItems());
-    }
-
-
-    @Test
-    @DisplayName("updates first time, but not subsequent times when passed same item with different consecutively")
-    void testRemoveItemFromPlateauSameConsecutive() {
+    @DisplayName("updates correctly when passed appropriate rover")
+    void testRemoveRoverFromPlateauAppropriateRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -203,23 +176,50 @@ class PlateauTest {
         Position testPosition2 = new Position(3,4, Direction.N);
 
         Plateau expectedPlateau = new Plateau(testPlateauSize);
-        expectedPlateau.addItemToPlateau(testRover1, testPosition1);
+        expectedPlateau.addRoverToPlateau(testRover1, testPosition1);
 
-        testPlateau.addItemToPlateau(testRover1, testPosition1);
-        testPlateau.addItemToPlateau(testRover2, testPosition2);
+        testPlateau.addRoverToPlateau(testRover1, testPosition1);
+        testPlateau.addRoverToPlateau(testRover2, testPosition2);
 
         //Act
-        testPlateau.removeItemFromPlateau(testRover2);
-        testPlateau.removeItemFromPlateau(testRover2);
-        testPlateau.removeItemFromPlateau(testRover2);
+        testPlateau.removeRoverFromPlateau(testRover2);
 
         //Assert
-        assertEquals(expectedPlateau.getPlateauItems(), testPlateau.getPlateauItems());
+        assertEquals(expectedPlateau.getPlateauRoverPositions(), testPlateau.getPlateauRoverPositions());
+    }
+
+
+    @Test
+    @DisplayName("updates first time, but not subsequent times when passed same rover with different positions consecutively")
+    void testRemoveRoverFromPlateauSameConsecutive() {
+        //Arrange
+        PlateauSize testPlateauSize = new PlateauSize(5,5);
+        Plateau testPlateau = new Plateau(testPlateauSize);
+
+        Rover testRover1 = new Rover();
+        Position testPosition1 = new Position(1,2, Direction.N);
+
+        Rover testRover2 = new Rover();
+        Position testPosition2 = new Position(3,4, Direction.N);
+
+        Plateau expectedPlateau = new Plateau(testPlateauSize);
+        expectedPlateau.addRoverToPlateau(testRover1, testPosition1);
+
+        testPlateau.addRoverToPlateau(testRover1, testPosition1);
+        testPlateau.addRoverToPlateau(testRover2, testPosition2);
+
+        //Act
+        testPlateau.removeRoverFromPlateau(testRover2);
+        testPlateau.removeRoverFromPlateau(testRover2);
+        testPlateau.removeRoverFromPlateau(testRover2);
+
+        //Assert
+        assertEquals(expectedPlateau.getPlateauRoverPositions(), testPlateau.getPlateauRoverPositions());
     }
 
     @Test
-    @DisplayName("updates correctly when passed different items consecutively")
-    void testRemoveItemFromPlateauDifferentConsecutive() {
+    @DisplayName("updates correctly when passed different rovers consecutively")
+    void testRemoveRoverFromPlateauDifferentConsecutive() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -237,29 +237,29 @@ class PlateauTest {
         Position testPosition4 = new Position(3,4, Direction.N);
 
         Plateau expectedPlateau = new Plateau(testPlateauSize);
-        expectedPlateau.addItemToPlateau(testRover1, testPosition1);
+        expectedPlateau.addRoverToPlateau(testRover1, testPosition1);
 
-        testPlateau.addItemToPlateau(testRover1, testPosition1);
-        testPlateau.addItemToPlateau(testRover2, testPosition2);
-        testPlateau.addItemToPlateau(testRover3, testPosition3);
-        testPlateau.addItemToPlateau(testRover4, testPosition4);
+        testPlateau.addRoverToPlateau(testRover1, testPosition1);
+        testPlateau.addRoverToPlateau(testRover2, testPosition2);
+        testPlateau.addRoverToPlateau(testRover3, testPosition3);
+        testPlateau.addRoverToPlateau(testRover4, testPosition4);
 
         //Act
-        testPlateau.removeItemFromPlateau(testRover2);
-        testPlateau.removeItemFromPlateau(testRover3);
-        testPlateau.removeItemFromPlateau(testRover4);
+        testPlateau.removeRoverFromPlateau(testRover2);
+        testPlateau.removeRoverFromPlateau(testRover3);
+        testPlateau.removeRoverFromPlateau(testRover4);
 
         //Assert
-        assertEquals(expectedPlateau.getPlateauItems(), testPlateau.getPlateauItems());
+        assertEquals(expectedPlateau.getPlateauRoverPositions(), testPlateau.getPlateauRoverPositions());
     }
 
-//    updateItemXCoordinate
-    // Cannot test if item is null, or position is null, as addItemToPlateau will not allow null items or
+//    updateRoverXCoordinate
+    // Cannot test if rover is null, or position is null, as addRoverToPlateau will not allow null rovers or
     // positions to be added
 
     @Test
-    @DisplayName("makes no update when item is null")
-    void testUpdateItemXCoordinateNullItem() {
+    @DisplayName("makes no update when rover is null")
+    void testUpdateRoverXCoordinateNullRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -267,22 +267,22 @@ class PlateauTest {
         Rover testRover = new Rover();
         Position testPosition = new Position(1,2, Direction.N);
 
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Act
-        testPlateau.updateItemXCoordinate(null, 2);
+        testPlateau.updateRoverXCoordinate(null, 2);
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauItems().get(testRover).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauItems().get(testRover).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauItems().get(testRover).getDirection())
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
         );
     }
 
     @Test
-    @DisplayName("makes no update when item is not in plateauItems")
-    void testUpdateItemXCoordinateMissingItem() {
+    @DisplayName("makes no update when rover is not in plateauRoverPositions")
+    void testUpdateRoverXCoordinateMissingRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -290,44 +290,24 @@ class PlateauTest {
         Rover testRover1 = new Rover();
         Position testPosition1 = new Position(1,2, Direction.N);
 
+        testPlateau.addRoverToPlateau(testRover1, testPosition1);
         Rover testRover2 = new Rover();
 
-        Map<Plateauable, Position> expectedHashMap = new HashMap<>();
-        expectedHashMap.put(testRover1, testPosition1);
-
         //Act
-        testPlateau.updateItemXCoordinate(testRover2, 2);
-
-        //Assert
-        assertEquals(expectedHashMap, testPlateau.getPlateauItems());
-    }
-
-    @Test
-    @DisplayName("makes no update when passed y coordinate which is the same as the current y coordinate for the item")
-    void testUpdateItemXCoordinateSame() {
-        //Arrange
-        PlateauSize testPlateauSize = new PlateauSize(5,5);
-        Plateau testPlateau = new Plateau(testPlateauSize);
-
-        Rover testRover = new Rover();
-        Position testPosition = new Position(1,2, Direction.N);
-
-        testPlateau.addItemToPlateau(testRover, testPosition);
-
-        //Act
-        testPlateau.updateItemXCoordinate(testRover, 1);
+        testPlateau.updateRoverXCoordinate(testRover2, 2);
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauItems().get(testRover).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauItems().get(testRover).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauItems().get(testRover).getDirection())
+                () -> assertNull(testPlateau.getPlateauRoverPositions().get(testRover2)),
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection())
         );
     }
 
     @Test
-    @DisplayName("updates correctly when passed appropriate item and coordinate")
-    void testUpdateItemXCoordinateAppropriateItemAndCoordinate() {
+    @DisplayName("makes no update when passed y coordinate which is the same as the current y coordinate for the rover")
+    void testUpdateRoverXCoordinateSame() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -335,22 +315,45 @@ class PlateauTest {
         Rover testRover = new Rover();
         Position testPosition = new Position(1,2, Direction.N);
 
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Act
-        testPlateau.updateItemXCoordinate(testRover, 2);
+        testPlateau.updateRoverXCoordinate(testRover, 1);
 
         //Assert
         assertAll(
-                () -> assertEquals(2, testPlateau.getPlateauItems().get(testRover).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauItems().get(testRover).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauItems().get(testRover).getDirection())
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
+        );
+    }
+
+    @Test
+    @DisplayName("updates correctly when passed appropriate rover and coordinate")
+    void testUpdateRoverXCoordinateAppropriateRoverAndCoordinate() {
+        //Arrange
+        PlateauSize testPlateauSize = new PlateauSize(5,5);
+        Plateau testPlateau = new Plateau(testPlateauSize);
+
+        Rover testRover = new Rover();
+        Position testPosition = new Position(1,2, Direction.N);
+
+        testPlateau.addRoverToPlateau(testRover, testPosition);
+
+        //Act
+        testPlateau.updateRoverXCoordinate(testRover, 2);
+
+        //Assert
+        assertAll(
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
         );
     }
 
     @Test
     @DisplayName("updates correctly when passed consecutively updates")
-    void testUpdateItemXCoordinateConsecutive() {
+    void testUpdateRoverXCoordinateConsecutive() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -358,24 +361,24 @@ class PlateauTest {
         Rover testRover = new Rover();
         Position testPosition = new Position(1,2, Direction.N);
 
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Act
-        testPlateau.updateItemXCoordinate(testRover, 2);
-        testPlateau.updateItemXCoordinate(testRover, 3);
-        testPlateau.updateItemXCoordinate(testRover, 4);
+        testPlateau.updateRoverXCoordinate(testRover, 2);
+        testPlateau.updateRoverXCoordinate(testRover, 3);
+        testPlateau.updateRoverXCoordinate(testRover, 4);
 
         //Assert
         assertAll(
-                () -> assertEquals(4, testPlateau.getPlateauItems().get(testRover).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauItems().get(testRover).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauItems().get(testRover).getDirection())
+                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
         );
     }
 
     @Test
     @DisplayName("does not update when passed coordinate which would take the Rover off the Plateau")
-    void testUpdateItemXCoordinateOffPlateau() {
+    void testUpdateRoverXCoordinateOffPlateau() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -386,32 +389,32 @@ class PlateauTest {
         Rover testRover2 = new Rover();
         Position testPosition2 = new Position(3,3, Direction.S);
 
-        testPlateau.addItemToPlateau(testRover1, testPosition1);
-        testPlateau.addItemToPlateau(testRover2, testPosition2);
+        testPlateau.addRoverToPlateau(testRover1, testPosition1);
+        testPlateau.addRoverToPlateau(testRover2, testPosition2);
 
         //Act
-        testPlateau.updateItemXCoordinate(testRover1, 6);
-        testPlateau.updateItemXCoordinate(testRover2, -1);
+        testPlateau.updateRoverXCoordinate(testRover1, 6);
+        testPlateau.updateRoverXCoordinate(testRover2, -1);
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauItems().get(testRover1).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauItems().get(testRover1).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauItems().get(testRover1).getDirection()),
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
 
-                () -> assertEquals(3, testPlateau.getPlateauItems().get(testRover2).getX()),
-                () -> assertEquals(3, testPlateau.getPlateauItems().get(testRover2).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauItems().get(testRover2).getDirection())
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection())
         );
     }
 
-//    updateItemYCoordinate
-    // Cannot test if item is null, or position is null, as addItemToPlateau will not allow null items or
+//    updateRoverYCoordinate
+    // Cannot test if rover is null, or position is null, as addRoverToPlateau will not allow null rovers or
     // positions to be added
 
     @Test
-    @DisplayName("makes no update when item is null")
-    void testUpdateItemYCoordinateNullItem() {
+    @DisplayName("makes no update when rover is null")
+    void testUpdateRoverYCoordinateNullRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -419,22 +422,22 @@ class PlateauTest {
         Rover testRover = new Rover();
         Position testPosition = new Position(1,2, Direction.N);
 
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Act
-        testPlateau.updateItemYCoordinate(null, 2);
+        testPlateau.updateRoverYCoordinate(null, 2);
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauItems().get(testRover).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauItems().get(testRover).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauItems().get(testRover).getDirection())
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
         );
     }
 
     @Test
-    @DisplayName("makes no update when item is not in plateauItems")
-    void testUpdateItemYCoordinateMissingItem() {
+    @DisplayName("makes no update when rover is not in plateauRoverPositions")
+    void testUpdateRoverYCoordinateMissingRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -442,44 +445,24 @@ class PlateauTest {
         Rover testRover1 = new Rover();
         Position testPosition1 = new Position(1,2, Direction.N);
 
+        testPlateau.addRoverToPlateau(testRover1, testPosition1);
         Rover testRover2 = new Rover();
 
-        Map<Plateauable, Position> expectedHashMap = new HashMap<>();
-        expectedHashMap.put(testRover1, testPosition1);
-
         //Act
-        testPlateau.updateItemYCoordinate(testRover2, 2);
-
-        //Assert
-        assertEquals(expectedHashMap, testPlateau.getPlateauItems());
-    }
-
-    @Test
-    @DisplayName("makes no update when passed y coordinate which is the same as the current y coordinate for the item")
-    void testUpdateItemYCoordinateSame() {
-        //Arrange
-        PlateauSize testPlateauSize = new PlateauSize(5,5);
-        Plateau testPlateau = new Plateau(testPlateauSize);
-
-        Rover testRover = new Rover();
-        Position testPosition = new Position(1,2, Direction.N);
-
-        testPlateau.addItemToPlateau(testRover, testPosition);
-
-        //Act
-        testPlateau.updateItemYCoordinate(testRover, 2);
+        testPlateau.updateRoverYCoordinate(testRover2, 2);
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauItems().get(testRover).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauItems().get(testRover).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauItems().get(testRover).getDirection())
+                () -> assertNull(testPlateau.getPlateauRoverPositions().get(testRover2)),
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection())
         );
     }
 
     @Test
-    @DisplayName("updates correctly when passed appropriate item and coordinate")
-    void testUpdateItemYCoordinateAppropriateItemAndCoordinate() {
+    @DisplayName("makes no update when passed y coordinate which is the same as the current y coordinate for the rover")
+    void testUpdateRoverYCoordinateSame() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -487,22 +470,45 @@ class PlateauTest {
         Rover testRover = new Rover();
         Position testPosition = new Position(1,2, Direction.N);
 
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Act
-        testPlateau.updateItemYCoordinate(testRover, 3);
+        testPlateau.updateRoverYCoordinate(testRover, 2);
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauItems().get(testRover).getX()),
-                () -> assertEquals(3, testPlateau.getPlateauItems().get(testRover).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauItems().get(testRover).getDirection())
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
+        );
+    }
+
+    @Test
+    @DisplayName("updates correctly when passed appropriate rover and coordinate")
+    void testUpdateRoverYCoordinateAppropriateRoverAndCoordinate() {
+        //Arrange
+        PlateauSize testPlateauSize = new PlateauSize(5,5);
+        Plateau testPlateau = new Plateau(testPlateauSize);
+
+        Rover testRover = new Rover();
+        Position testPosition = new Position(1,2, Direction.N);
+
+        testPlateau.addRoverToPlateau(testRover, testPosition);
+
+        //Act
+        testPlateau.updateRoverYCoordinate(testRover, 3);
+
+        //Assert
+        assertAll(
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
         );
     }
 
     @Test
     @DisplayName("updates correctly when passed consecutively updates")
-    void testUpdateItemYCoordinateConsecutive() {
+    void testUpdateRoverYCoordinateConsecutive() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -510,24 +516,24 @@ class PlateauTest {
         Rover testRover = new Rover();
         Position testPosition = new Position(1,2, Direction.N);
 
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Act
-        testPlateau.updateItemYCoordinate(testRover, 3);
-        testPlateau.updateItemYCoordinate(testRover, 4);
-        testPlateau.updateItemYCoordinate(testRover, 5);
+        testPlateau.updateRoverYCoordinate(testRover, 3);
+        testPlateau.updateRoverYCoordinate(testRover, 4);
+        testPlateau.updateRoverYCoordinate(testRover, 5);
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauItems().get(testRover).getX()),
-                () -> assertEquals(5, testPlateau.getPlateauItems().get(testRover).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauItems().get(testRover).getDirection())
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(5, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
         );
     }
 
     @Test
     @DisplayName("does not update when passed coordinate which would take the Rover off the Plateau")
-    void testUpdateItemYCoordinateOffPlateau() {
+    void testUpdateRoverYCoordinateOffPlateau() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -538,32 +544,32 @@ class PlateauTest {
         Rover testRover2 = new Rover();
         Position testPosition2 = new Position(3,3, Direction.S);
 
-        testPlateau.addItemToPlateau(testRover1, testPosition1);
-        testPlateau.addItemToPlateau(testRover2, testPosition2);
+        testPlateau.addRoverToPlateau(testRover1, testPosition1);
+        testPlateau.addRoverToPlateau(testRover2, testPosition2);
 
         //Act
-        testPlateau.updateItemYCoordinate(testRover1, 6);
-        testPlateau.updateItemYCoordinate(testRover2, -1);
+        testPlateau.updateRoverYCoordinate(testRover1, 6);
+        testPlateau.updateRoverYCoordinate(testRover2, -1);
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauItems().get(testRover1).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauItems().get(testRover1).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauItems().get(testRover1).getDirection()),
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
 
-                () -> assertEquals(3, testPlateau.getPlateauItems().get(testRover2).getX()),
-                () -> assertEquals(3, testPlateau.getPlateauItems().get(testRover2).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauItems().get(testRover2).getDirection())
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection())
         );
     }
 
-//    updateItemDirection
-    // Cannot test if item is null, or position is null, as addItemToPlateau will not allow null items or
+//    updateRoverDirection
+    // Cannot test if rover is null, or position is null, as addRoverToPlateau will not allow null rovers or
     // positions to be added
 
     @Test
-    @DisplayName("makes no update when item is null")
-    void testUpdateItemDirectionNullItem() {
+    @DisplayName("makes no update when rover is null")
+    void testUpdateRoverDirectionNullRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -571,22 +577,22 @@ class PlateauTest {
         Rover testRover = new Rover();
         Position testPosition = new Position(1,2, Direction.N);
 
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Act
-        testPlateau.updateItemDirection(null, Direction.S);
+        testPlateau.updateRoverDirection(null, Direction.S);
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauItems().get(testRover).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauItems().get(testRover).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauItems().get(testRover).getDirection())
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
         );
     }
 
     @Test
     @DisplayName("makes no update when Direction is null")
-    void testUpdateItemDirectionNullDirection() {
+    void testUpdateRoverDirectionNullDirection() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -594,22 +600,22 @@ class PlateauTest {
         Rover testRover = new Rover();
         Position testPosition = new Position(1,2, Direction.N);
 
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Act
-        testPlateau.updateItemDirection(testRover, null);
+        testPlateau.updateRoverDirection(testRover, null);
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauItems().get(testRover).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauItems().get(testRover).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauItems().get(testRover).getDirection())
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
         );
     }
 
     @Test
-    @DisplayName("makes no update when item is not in plateauItems")
-    void testUpdateItemDirectionMissingItem() {
+    @DisplayName("makes no update when rover is not in plateauRoverPositions")
+    void testUpdateRoverDirectionMissingRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -617,44 +623,24 @@ class PlateauTest {
         Rover testRover1 = new Rover();
         Position testPosition1 = new Position(1,2, Direction.N);
 
+        testPlateau.addRoverToPlateau(testRover1, testPosition1);
         Rover testRover2 = new Rover();
 
-        Map<Plateauable, Position> expectedHashMap = new HashMap<>();
-        expectedHashMap.put(testRover1, testPosition1);
-
         //Act
-        testPlateau.updateItemDirection(testRover2, Direction.E);
-
-        //Assert
-        assertEquals(expectedHashMap, testPlateau.getPlateauItems());
-    }
-
-    @Test
-    @DisplayName("makes no update when passed y coordinate which is the same as the current y coordinate for the item")
-    void testUpdateItemDirectionSame() {
-        //Arrange
-        PlateauSize testPlateauSize = new PlateauSize(5,5);
-        Plateau testPlateau = new Plateau(testPlateauSize);
-
-        Rover testRover = new Rover();
-        Position testPosition = new Position(1,2, Direction.N);
-
-        testPlateau.addItemToPlateau(testRover, testPosition);
-
-        //Act
-        testPlateau.updateItemDirection(testRover, Direction.N);
+        testPlateau.updateRoverDirection(testRover2, Direction.E);
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauItems().get(testRover).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauItems().get(testRover).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauItems().get(testRover).getDirection())
+                () -> assertNull(testPlateau.getPlateauRoverPositions().get(testRover2)),
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection())
         );
     }
 
     @Test
-    @DisplayName("updates correctly when passed appropriate item and coordinate")
-    void testUpdateItemDirectionAppropriateItemAndDirection() {
+    @DisplayName("makes no update when passed y coordinate which is the same as the current y coordinate for the rover")
+    void testUpdateRoverDirectionSame() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -662,22 +648,45 @@ class PlateauTest {
         Rover testRover = new Rover();
         Position testPosition = new Position(1,2, Direction.N);
 
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Act
-        testPlateau.updateItemDirection(testRover, Direction.S);
+        testPlateau.updateRoverDirection(testRover, Direction.N);
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauItems().get(testRover).getX()),
-                () -> assertEquals(3, testPlateau.getPlateauItems().get(testRover).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauItems().get(testRover).getDirection())
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
+        );
+    }
+
+    @Test
+    @DisplayName("updates correctly when passed appropriate rover and coordinate")
+    void testUpdateRoverDirectionAppropriateRoverAndDirection() {
+        //Arrange
+        PlateauSize testPlateauSize = new PlateauSize(5,5);
+        Plateau testPlateau = new Plateau(testPlateauSize);
+
+        Rover testRover = new Rover();
+        Position testPosition = new Position(1,2, Direction.N);
+
+        testPlateau.addRoverToPlateau(testRover, testPosition);
+
+        //Act
+        testPlateau.updateRoverDirection(testRover, Direction.S);
+
+        //Assert
+        assertAll(
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
         );
     }
 
     @Test
     @DisplayName("updates correctly when passed consecutively updates")
-    void testUpdateItemDirectionConsecutive() {
+    void testUpdateRoverDirectionConsecutive() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -685,18 +694,18 @@ class PlateauTest {
         Rover testRover = new Rover();
         Position testPosition = new Position(1,2, Direction.N);
 
-        testPlateau.addItemToPlateau(testRover, testPosition);
+        testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Act
-        testPlateau.updateItemDirection(testRover, Direction.E);
-        testPlateau.updateItemDirection(testRover, Direction.W);
-        testPlateau.updateItemDirection(testRover, Direction.S);
+        testPlateau.updateRoverDirection(testRover, Direction.E);
+        testPlateau.updateRoverDirection(testRover, Direction.W);
+        testPlateau.updateRoverDirection(testRover, Direction.S);
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauItems().get(testRover).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauItems().get(testRover).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauItems().get(testRover).getDirection())
+                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
         );
     }
 

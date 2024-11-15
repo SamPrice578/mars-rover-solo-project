@@ -5,49 +5,49 @@ import java.util.Map;
 
 public class Plateau {
     private final PlateauSize plateauSize;
-    private Map<Plateauable, Position> plateauItems = new HashMap<>();
+    private Map<Rover, Position> plateauRoverPositions = new HashMap<>();
 
     public Plateau(PlateauSize plateauSize) {
         this.plateauSize = plateauSize;
     }
 
-    public void addItemToPlateau(Plateauable item, Position position) {
-        if (item == null) {
-            System.out.println("Cannot add null item to plateau");
+    public void addRoverToPlateau(Rover rover, Position position) {
+        if (rover == null) {
+            System.out.println("Cannot add null rover to plateau");
             return;
         }
         if (position == null) {
-            System.out.println("Cannot add item at null position on plateau");
+            System.out.println("Cannot add rover at null position on plateau");
             return;
         }
         if (position.getX() > this.plateauSize.getX() || position.getY() > this.plateauSize.getY()) {
-            System.out.println("Cannot add item to plateau because the position is beyond the " +
+            System.out.println("Cannot add rover to plateau because the position is beyond the " +
                     "limits of the plateau.  Plateau size is: " + this.plateauSize +
-                    " and the specified position for the item is: " + position);
+                    " and the specified position for the rover is: " + position);
         }
 
-        this.plateauItems.put(item, position);
+        this.plateauRoverPositions.put(rover, position);
     }
 
-    public void updateItemXCoordinate(Plateauable item, int newX) {}
+    public void updateRoverXCoordinate(Rover rover, int newX) {}
 
-    public void updateItemYCoordinate(Plateauable item, int newY) {}
+    public void updateRoverYCoordinate(Rover rover, int newY) {}
 
-    public void updateItemDirection(Plateauable item, Direction newDirection) {}
+    public void updateRoverDirection(Rover rover, Direction newDirection) {}
 
-    public void removeItemFromPlateau(Plateauable item) {
-        if (item == null) {
-            System.out.println("Cannot remove null item from plateau");
+    public void removeRoverFromPlateau(Rover rover) {
+        if (rover == null) {
+            System.out.println("Cannot remove null rover from plateau");
             return;
         }
-        if (this.plateauItems.containsKey(item)) {
-            this.plateauItems.remove(item);
+        if (this.plateauRoverPositions.containsKey(rover)) {
+            this.plateauRoverPositions.remove(rover);
         } else {
-            System.out.println("cannot remove item because it does not exist on the plateau");
+            System.out.println("cannot remove rover because it does not exist on the plateau");
         }
     }
 
-    public Map<Plateauable, Position> getPlateauItems() {
-        return plateauItems;
+    public Map<Rover, Position> getPlateauRoverPositions() {
+        return plateauRoverPositions;
     }
 }
