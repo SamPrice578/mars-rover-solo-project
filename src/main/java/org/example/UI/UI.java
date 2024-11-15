@@ -10,6 +10,21 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public abstract class UI {
+
+    public static void introductoryMessage() {
+        System.out.println("---Welcome to the Northcoder Mars Rover Launch!---");
+        System.out.println();
+        System.out.println("You will soon be prompted to enter three piece of information:");
+        System.out.println("  - the size of the plateau on which your rover will operate");
+        System.out.println("  - the initial position of the rover on the plateau");
+        System.out.println("  - the instructions you wish to pass to the rover");
+        System.out.println();
+        System.out.println("Let's begin!");
+        System.out.println();
+        System.out.println("-------------------------");
+        System.out.println();
+    }
+
     public static String inputInitialDimensions(Scanner scanner) {
 
         PlateauInitialisationParser plateauInitialisationParser = new PlateauInitialisationParser();
@@ -28,6 +43,7 @@ public abstract class UI {
             System.out.println("The input will be interpreted by the parser as follows:");
             System.out.println("Plateau initial X dimension: " + provisionalXDimension);
             System.out.println("Plateau initial Y dimension: " + provisionalYDimension);
+            System.out.println();
             System.out.println("If you are happy to submit these values, enter Y, otherwise enter N.  If you enter N " +
                     "You will be prompted again to enter your Plateau's initial dimensions.");
 
@@ -64,6 +80,7 @@ public abstract class UI {
             System.out.println("Rover initial X coordinate: " + provisionalXCoordinate);
             System.out.println("Rover initial Y coordinate: " + provisionalYCoordinate);
             System.out.println("Rover initial direction: " + provisionalDirection);
+            System.out.println();
             System.out.println("If you are happy to submit these values, enter Y, otherwise enter N.  If you enter N " +
                     "You will be prompted again to enter your Plateau's initial dimensions.");
 
@@ -95,6 +112,7 @@ public abstract class UI {
 
             System.out.println("The input will be interpreted by the parser as follows:");
             System.out.println("Rover instructions: " + provisionalInstructions);
+            System.out.println();
             System.out.println("If you are happy to submit these values, enter Y, otherwise enter N.  If you enter N " +
                     "You will be prompted again to enter your Plateau's initial dimensions.");
 
@@ -121,5 +139,10 @@ public abstract class UI {
             }
         }
         return false;
+    }
+
+    public static void concludingMessage() {
+        System.out.println("Mission complete!");
+        System.out.println();
     }
 }

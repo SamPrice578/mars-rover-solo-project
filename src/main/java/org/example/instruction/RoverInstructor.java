@@ -8,6 +8,11 @@ import java.util.ArrayList;
 
 public class RoverInstructor {
     public static void instructRover(Rover rover, Plateau plateau, ArrayList<Instruction> instructions) {
+        System.out.println("Instructing Rover...");
+        System.out.println(instructions);
+        System.out.println("Rover initial position: " + plateau.getPlateauRoverPositions().get(rover));
+        System.out.println();
+
         if (instructions.isEmpty()) {
             System.out.println("Unable to instruct Rover: no instructions provided");
             return;
@@ -30,5 +35,8 @@ public class RoverInstructor {
                     break;
             }
         }
+        System.out.println();
+        System.out.println("Rover final position: " + plateau.getPlateauRoverPositions().get(rover));
+        System.out.println();
     }
 }
