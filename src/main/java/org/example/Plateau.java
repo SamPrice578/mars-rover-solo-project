@@ -13,27 +13,93 @@ public class Plateau {
 
     public void addRoverToPlateau(Rover rover, Position position) {
         if (rover == null) {
-            System.out.println("Cannot add null rover to plateau");
+            System.out.println("Rover not added to Plateau: null Rover cannot be added.");
             return;
         }
         if (position == null) {
-            System.out.println("Cannot add rover at null position on plateau");
+            System.out.println("Rover not added to Plateau: Rover cannot be added at null position.");
             return;
         }
         if (position.getX() > this.plateauSize.getX() || position.getY() > this.plateauSize.getY()) {
-            System.out.println("Cannot add rover to plateau because the position is beyond the " +
+            System.out.println("Rover not added to Plateau: position is beyond the " +
                     "limits of the plateau.  Plateau size is: " + this.plateauSize +
-                    " and the specified position for the rover is: " + position);
+                    " and the input position for the rover is: " + position);
+            return;
         }
 
         this.plateauRoverPositions.put(rover, position);
     }
 
-    public void updateRoverXCoordinate(Rover rover, int newX) {}
+    public void updateRoverXCoordinate(Rover rover, int newX) {
+        if (rover == null) {
+            System.out.println("Rover position not updated: input Rover cannot be null.");
+            return;
+        }
 
-    public void updateRoverYCoordinate(Rover rover, int newY) {}
+        if (newX < 0) {
+            System.out.println("Rover position not updated: X coordinate cannot be negative.");
+            return;
+        }
 
-    public void updateRoverDirection(Rover rover, Direction newDirection) {}
+        if (newX > plateauSize.getX()) {
+            System.out.println("Rover position not updated: Rover X coordinate cannot be updated to number beyond" +
+                    "the limits of the plateau.  Plateau size is: " + this.plateauSize +
+                    " and the input x coordinate is: " + newX);
+            return;
+        }
+
+        if (!plateauRoverPositions.containsKey(rover)) {
+            System.out.println("Rover position not updated: Rover cannot be found on the Plateau.");
+            return;
+        }
+
+        plateauRoverPositions.get(rover).setX(newX);
+    }
+
+    public void updateRoverYCoordinate(Rover rover, int newY) {
+        if (rover == null) {
+            System.out.println("Rover position not updated: input Rover cannot be null.");
+            return;
+        }
+
+        if (newY < 0) {
+            System.out.println("Rover position not updated: Y coordinate cannot be negative.");
+            return;
+        }
+
+        if (newY > plateauSize.getY()) {
+            System.out.println("Rover position not updated: Y coordinate cannot be beyond" +
+                    "the limits of the plateau.  Plateau size is: " + this.plateauSize +
+                    " and the input y coordinate is: " + newY);
+            return;
+        }
+
+        if (!plateauRoverPositions.containsKey(rover)) {
+            System.out.println("Rover position not updated: Rover cannot be found on the Plateau.");
+            return;
+        }
+
+        plateauRoverPositions.get(rover).setY(newY);
+    }
+
+    public void updateRoverDirection(Rover rover, Direction newDirection) {
+        if (rover == null) {
+            System.out.println("Rover position not updated: input Rover cannot be null.");
+            return;
+        }
+
+        if (newDirection == null) {
+            System.out.println("Rover position not updated: input direction cannot be null.");
+            return;
+        }
+
+        if (!plateauRoverPositions.containsKey(rover)) {
+            System.out.println("Rover position not updated: Rover cannot be found on the Plateau.");
+            return;
+        }
+
+        plateauRoverPositions.get(rover).setDirection(newDirection);
+    }
 
     public void removeRoverFromPlateau(Rover rover) {
         if (rover == null) {

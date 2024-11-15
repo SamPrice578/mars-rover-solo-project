@@ -12,7 +12,7 @@ import java.util.Map;
 class PlateauTest {
 
     @Test
-    @DisplayName("makes no update when rover is null")
+    @DisplayName("addRoverToPlateau makes no update when rover is null")
     void testAddRoverToPlateauNullRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -30,7 +30,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("makes no update when position is null")
+    @DisplayName("addRoverToPlateau makes no update when position is null")
     void testAddRoverToPlateauNullPosition() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -48,7 +48,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("updates correctly when passed appropriate rover and position")
+    @DisplayName("addRoverToPlateau updates correctly when passed appropriate rover and position")
     void testAddRoverToPlateauAppropriateRoverAndPosition() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -65,7 +65,7 @@ class PlateauTest {
 
 
     @Test
-    @DisplayName("updates correctly when passed same rover with different positions consecutively")
+    @DisplayName("addRoverToPlateau updates correctly when passed same rover with different positions consecutively")
     void testAddRoverToPlateauSameRoverDiffferentPositionsConsecutive() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -87,7 +87,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("updates correctly when passed different rovers and positions consecutively")
+    @DisplayName("addRoverToPlateau updates correctly when passed different rovers and positions consecutively")
     void testAddRoverToPlateauDifferentRoversAndPositionsConsecutive() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -115,7 +115,7 @@ class PlateauTest {
 //    removeRoverFromPlateau
 
     @Test
-    @DisplayName("makes no update when rover is null")
+    @DisplayName("removeRoverFromPlateau makes no update when rover is null")
     void testRemoveRoverFromPlateauNullRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -139,7 +139,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("makes no update if rover does not exist in plateauRoverPositions")
+    @DisplayName("removeRoverFromPlateau makes no update if rover does not exist in plateauRoverPositions")
     void testRemoveRoverFromPlateauMissingRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -163,7 +163,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("updates correctly when passed appropriate rover")
+    @DisplayName("removeRoverFromPlateau updates correctly when passed appropriate rover")
     void testRemoveRoverFromPlateauAppropriateRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -190,7 +190,7 @@ class PlateauTest {
 
 
     @Test
-    @DisplayName("updates first time, but not subsequent times when passed same rover with different positions consecutively")
+    @DisplayName("removeRoverFromPlateau updates first time, but not subsequent times when passed same rover with different positions consecutively")
     void testRemoveRoverFromPlateauSameConsecutive() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -218,7 +218,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("updates correctly when passed different rovers consecutively")
+    @DisplayName("removeRoverFromPlateau updates correctly when passed different rovers consecutively")
     void testRemoveRoverFromPlateauDifferentConsecutive() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -258,7 +258,7 @@ class PlateauTest {
     // positions to be added
 
     @Test
-    @DisplayName("makes no update when rover is null")
+    @DisplayName("updateRoverXCoordinate makes no update when rover is null")
     void testUpdateRoverXCoordinateNullRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -281,7 +281,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("makes no update when rover is not in plateauRoverPositions")
+    @DisplayName("updateRoverXCoordinate makes no update when rover is not in plateauRoverPositions")
     void testUpdateRoverXCoordinateMissingRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -306,7 +306,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("makes no update when passed y coordinate which is the same as the current y coordinate for the rover")
+    @DisplayName("updateRoverXCoordinate makes no update when passed y coordinate which is the same as the current y coordinate for the rover")
     void testUpdateRoverXCoordinateSame() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -329,7 +329,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("updates correctly when passed appropriate rover and coordinate")
+    @DisplayName("updateRoverXCoordinate updates correctly when passed appropriate rover and coordinate")
     void testUpdateRoverXCoordinateAppropriateRoverAndCoordinate() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -352,7 +352,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("updates correctly when passed consecutively updates")
+    @DisplayName("updateRoverXCoordinate updates correctly when passed consecutively updates")
     void testUpdateRoverXCoordinateConsecutive() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -377,7 +377,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("does not update when passed coordinate which would take the Rover off the Plateau")
+    @DisplayName("updateRoverXCoordinate does not update when passed coordinate which would take the Rover off the Plateau")
     void testUpdateRoverXCoordinateOffPlateau() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -413,7 +413,7 @@ class PlateauTest {
     // positions to be added
 
     @Test
-    @DisplayName("makes no update when rover is null")
+    @DisplayName("updateRoverYCoordinate makes no update when rover is null")
     void testUpdateRoverYCoordinateNullRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -436,7 +436,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("makes no update when rover is not in plateauRoverPositions")
+    @DisplayName("updateRoverYCoordinate makes no update when rover is not in plateauRoverPositions")
     void testUpdateRoverYCoordinateMissingRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -461,7 +461,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("makes no update when passed y coordinate which is the same as the current y coordinate for the rover")
+    @DisplayName("updateRoverYCoordinate makes no update when passed y coordinate which is the same as the current y coordinate for the rover")
     void testUpdateRoverYCoordinateSame() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -484,7 +484,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("updates correctly when passed appropriate rover and coordinate")
+    @DisplayName("updateRoverYCoordinate updates correctly when passed appropriate rover and coordinate")
     void testUpdateRoverYCoordinateAppropriateRoverAndCoordinate() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -507,7 +507,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("updates correctly when passed consecutively updates")
+    @DisplayName("updateRoverYCoordinate updates correctly when passed consecutively updates")
     void testUpdateRoverYCoordinateConsecutive() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -532,7 +532,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("does not update when passed coordinate which would take the Rover off the Plateau")
+    @DisplayName("updateRoverYCoordinate does not update when passed coordinate which would take the Rover off the Plateau")
     void testUpdateRoverYCoordinateOffPlateau() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -568,7 +568,7 @@ class PlateauTest {
     // positions to be added
 
     @Test
-    @DisplayName("makes no update when rover is null")
+    @DisplayName("updateRoverDirection makes no update when rover is null")
     void testUpdateRoverDirectionNullRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -591,7 +591,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("makes no update when Direction is null")
+    @DisplayName("updateRoverDirection makes no update when Direction is null")
     void testUpdateRoverDirectionNullDirection() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -614,7 +614,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("makes no update when rover is not in plateauRoverPositions")
+    @DisplayName("updateRoverDirection makes no update when rover is not in plateauRoverPositions")
     void testUpdateRoverDirectionMissingRover() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -639,7 +639,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("makes no update when passed y coordinate which is the same as the current y coordinate for the rover")
+    @DisplayName("updateRoverDirection makes no update when passed y coordinate which is the same as the current y coordinate for the rover")
     void testUpdateRoverDirectionSame() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -662,7 +662,7 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("updates correctly when passed appropriate rover and coordinate")
+    @DisplayName("updateRoverDirection updates correctly when passed appropriate rover and coordinate")
     void testUpdateRoverDirectionAppropriateRoverAndDirection() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
@@ -679,13 +679,13 @@ class PlateauTest {
         //Assert
         assertAll(
                 () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
                 () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
         );
     }
 
     @Test
-    @DisplayName("updates correctly when passed consecutively updates")
+    @DisplayName("updateRoverDirection updates correctly when passed consecutively updates")
     void testUpdateRoverDirectionConsecutive() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
