@@ -1,4 +1,4 @@
-package org.example.setup;
+package org.example.instruction;
 
 import org.example.parsing.Instruction;
 import org.example.mapping.Plateau;

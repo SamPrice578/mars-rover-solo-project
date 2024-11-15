@@ -1,11 +1,11 @@
 package org.example;
 
-import UI.UI;
+import org.example.UI.UI;
 import org.example.mapping.Plateau;
 import org.example.rovers.Rover;
 import org.example.parsing.*;
 import org.example.setup.PlateauInitialiser;
-import org.example.setup.RoverInstructor;
+import org.example.instruction.RoverInstructor;
 
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -13,6 +13,17 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
+        System.out.println("---Welcome to the Northcoder Mars Rover Launch!---");
+        System.out.println();
+        System.out.println("You will soon be prompted to enter three piece of information:");
+        System.out.println("  - the size of the plateau on which your rover will operate");
+        System.out.println("  - the initial position of the rover on the plateau");
+        System.out.println("  - the instructions you wish to pass to the rover");
+        System.out.println();
+        System.out.println("Let's begin!");
+        System.out.println();
+        System.out.println("-------------------------");
+        System.out.println();
 
         String initialPlateauDimensionsInput = UI.inputInitialDimensions(scanner);
 

@@ -6,7 +6,7 @@ import org.example.mapping.Position;
 import org.example.rovers.Rover;
 import org.example.parsing.Direction;
 import org.example.parsing.Instruction;
-import org.example.setup.RoverInstructor;
+import org.example.instruction.RoverInstructor;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 

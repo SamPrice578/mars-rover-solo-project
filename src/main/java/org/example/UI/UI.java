@@ -1,4 +1,4 @@
-package UI;
+package org.example.UI;
 
 import org.example.parsing.Direction;
 import org.example.parsing.Instruction;
