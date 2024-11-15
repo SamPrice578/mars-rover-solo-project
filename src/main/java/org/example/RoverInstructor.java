@@ -18,7 +18,7 @@ public class RoverInstructor {
                 case Instruction.M:
                     rover.move(plateau);
                 default:
-                    return;
+                    break;
             }
         }
     }
