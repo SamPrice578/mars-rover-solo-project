@@ -43,6 +43,7 @@ public class Main {
         Rover rover = plateauInitialiser.addRoverToPlateau(plateau, initialXCoordinate, initialYCoordinate, initialDirection);
 
         System.out.println("Instructing Rover...");
+        System.out.println(instructions);
         System.out.println("Rover initial position: " + plateau.getPlateauRoverPositions().get(rover));
 
         roverInstructor.instructRover(rover, plateau, instructions);

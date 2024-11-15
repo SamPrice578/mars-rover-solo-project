@@ -12,10 +12,13 @@ public class RoverInstructor {
         for (Instruction instruction : instructions) {
             switch (instruction) {
                 case Instruction.L:
+                    System.out.println("Rover instruction: L");
                     rover.turnLeft(plateau);
                 case Instruction.R:
+                    System.out.println("Rover instruction: R");
                     rover.turnRight(plateau);
                 case Instruction.M:
+                    System.out.println("Rover instruction: M");
                     rover.move(plateau);
                 default:
                     break;

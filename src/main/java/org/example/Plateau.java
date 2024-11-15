@@ -28,6 +28,8 @@ public class Plateau {
         }
 
         this.plateauRoverPositions.put(rover, position);
+
+        System.out.println("Rover added to Plateau");
     }
 
     public void updateRoverXCoordinate(Rover rover, int newX) {
@@ -54,6 +56,7 @@ public class Plateau {
         }
 
         plateauRoverPositions.get(rover).setX(newX);
+        System.out.println("Updates Rover position: " + this.plateauRoverPositions.get(rover));
     }
 
     public void updateRoverYCoordinate(Rover rover, int newY) {
@@ -80,6 +83,8 @@ public class Plateau {
         }
 
         plateauRoverPositions.get(rover).setY(newY);
+
+        System.out.println("Updates Rover position: " + this.plateauRoverPositions.get(rover));
     }
 
     public void updateRoverDirection(Rover rover, Direction newDirection) {
@@ -99,6 +104,8 @@ public class Plateau {
         }
 
         plateauRoverPositions.get(rover).setDirection(newDirection);
+
+        System.out.println("Updates Rover position: " + this.plateauRoverPositions.get(rover));
     }
 
     public void removeRoverFromPlateau(Rover rover) {
