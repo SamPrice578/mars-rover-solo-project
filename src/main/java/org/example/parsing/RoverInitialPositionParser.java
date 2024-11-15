@@ -3,7 +3,7 @@ package org.example.parsing;
 import org.example.Direction;
 
 public class RoverInitialPositionParser {
-    public int extractXCoordinate(String input){
+    public static int extractXCoordinate(String input){
 
         if (input == null) {
             return 0;
@@ -24,7 +24,7 @@ public class RoverInitialPositionParser {
         return 0;
     };
 
-    public int extractYCoordinate(String input){
+    public static int extractYCoordinate(String input){
 
         if (input == null) {
             return 0;
@@ -51,7 +51,7 @@ public class RoverInitialPositionParser {
         return 0;
     };
 
-    public Direction extractDirection(String input) {
+    public static Direction extractDirection(String input) {
 
         if (input == null) {
             return Direction.N;

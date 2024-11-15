@@ -8,7 +8,7 @@ import java.util.List;
 
 public class RoverInstructionParser {
 
-    public ArrayList<Instruction> parseRoverInstruction(String input){
+    public static ArrayList<Instruction> parseRoverInstruction(String input){
 
         ArrayList<Instruction> instructions = new ArrayList<>();
 

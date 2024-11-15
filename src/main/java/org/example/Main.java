@@ -19,22 +19,18 @@ public class Main {
 
         System.out.println("Initialising Plateau...");
 
-        PlateauInitialisationParser plateauInitialisationParser = new PlateauInitialisationParser();
-        RoverInitialPositionParser roverInitialPositionParser = new RoverInitialPositionParser();
-        RoverInstructionParser roverInstructionParser = new RoverInstructionParser();
-
-        int initialXDimension = plateauInitialisationParser.extractXDimension(initialPlateauDimensionsInput);
-        int initialYDimension = plateauInitialisationParser.extractYDimension(initialPlateauDimensionsInput);
+        int initialXDimension = PlateauInitialisationParser.extractXDimension(initialPlateauDimensionsInput);
+        int initialYDimension = PlateauInitialisationParser.extractYDimension(initialPlateauDimensionsInput);
 
         System.out.println("Placing Rover on Plateau...");
 
-        int initialXCoordinate = roverInitialPositionParser.extractXCoordinate(initialRoverPositionInput);
-        int initialYCoordinate = roverInitialPositionParser.extractYCoordinate(initialRoverPositionInput);
-        Direction initialDirection = roverInitialPositionParser.extractDirection(initialRoverPositionInput);
+        int initialXCoordinate = RoverInitialPositionParser.extractXCoordinate(initialRoverPositionInput);
+        int initialYCoordinate = RoverInitialPositionParser.extractYCoordinate(initialRoverPositionInput);
+        Direction initialDirection = RoverInitialPositionParser.extractDirection(initialRoverPositionInput);
 
         System.out.println("Processing Rover instructions...");
 
-        ArrayList<Instruction> instructions = roverInstructionParser.parseRoverInstruction(roverInstructionsinput);
+        ArrayList<Instruction> instructions = RoverInstructionParser.parseRoverInstruction(roverInstructionsinput);
 
         PlateauInitialiser plateauInitialiser = new PlateauInitialiser();
         RoverInstructor roverInstructor = new RoverInstructor();

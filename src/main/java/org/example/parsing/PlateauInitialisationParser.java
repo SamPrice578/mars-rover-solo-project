@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class PlateauInitialisationParser {
-    public int extractXDimension(String input){
+    public static int extractXDimension(String input){
 
         if (input == null) {
             return 0;
@@ -25,7 +25,7 @@ public class PlateauInitialisationParser {
         return 0;
     };
 
-    public int extractYDimension(String input){
+    public static int extractYDimension(String input){
 
         if (input == null) {
             return 0;
