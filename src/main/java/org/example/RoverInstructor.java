@@ -4,7 +4,7 @@ import java.sql.Array;
 import java.util.ArrayList;
 
 public class RoverInstructor {
-    public void instructRover(Rover rover, Plateau plateau, ArrayList<Instruction> instructions) {
+    public static void instructRover(Rover rover, Plateau plateau, ArrayList<Instruction> instructions) {
         if (instructions.isEmpty()) {
             System.out.println("Unable to instruct Rover: no instructions provided");
             return;

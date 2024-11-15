@@ -5,6 +5,12 @@ public class Rover implements Plateauable {
     public void move(Plateau plateau) {
 
         Position roverPosition = plateau.getPlateauRoverPositions().get(this);
+
+        if (roverPosition == null) {
+            System.out.println("Rover cannot move: Rover position cannot be null.");
+            return;
+        }
+
         Direction roverDirection = roverPosition.getDirection();
 
         int newY;
@@ -34,6 +40,12 @@ public class Rover implements Plateauable {
 
     public void turnLeft(Plateau plateau) {
         Position roverPosition = plateau.getPlateauRoverPositions().get(this);
+
+        if (roverPosition == null) {
+            System.out.println("Rover cannot move: Rover position cannot be null.");
+            return;
+        }
+
         Direction roverDirection = roverPosition.getDirection();
 
         switch (roverDirection) {
@@ -56,6 +68,12 @@ public class Rover implements Plateauable {
 
     public void turnRight(Plateau plateau) {
         Position roverPosition = plateau.getPlateauRoverPositions().get(this);
+
+        if (roverPosition == null) {
+            System.out.println("Rover cannot move: Rover position cannot be null.");
+            return;
+        }
+
         Direction roverDirection = roverPosition.getDirection();
 
         switch (roverDirection) {

@@ -70,7 +70,6 @@ public abstract class UI {
                 System.out.println();
                 return provisionalInput;
             } else {
-                break;
             }
         }
         return "";
@@ -102,7 +101,6 @@ public abstract class UI {
                 System.out.println();
                 return provisionalInput;
             } else {
-                break;
             }
         }
         return "";

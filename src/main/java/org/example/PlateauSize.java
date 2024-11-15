@@ -16,4 +16,12 @@ public class PlateauSize {
     public int getY() {
         return y;
     }
+
+    @Override
+    public String toString() {
+        return "PlateauSize{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
+    }
 }

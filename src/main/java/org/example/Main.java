@@ -32,20 +32,19 @@ public class Main {
 
         ArrayList<Instruction> instructions = RoverInstructionParser.parseRoverInstruction(roverInstructionsinput);
 
-        PlateauInitialiser plateauInitialiser = new PlateauInitialiser();
-        RoverInstructor roverInstructor = new RoverInstructor();
-
-        Plateau plateau = plateauInitialiser.initialisePlateau(initialXDimension, initialYDimension);
-        Rover rover = plateauInitialiser.addRoverToPlateau(plateau, initialXCoordinate, initialYCoordinate, initialDirection);
+        Plateau plateau = PlateauInitialiser.initialisePlateau(initialXDimension, initialYDimension);
+        Rover rover = PlateauInitialiser.addRoverToPlateau(plateau, initialXCoordinate, initialYCoordinate, initialDirection);
 
         System.out.println("Instructing Rover...");
         System.out.println(instructions);
+        System.out.println();
         System.out.println("Rover initial position: " + plateau.getPlateauRoverPositions().get(rover));
 
-        roverInstructor.instructRover(rover, plateau, instructions);
+        RoverInstructor.instructRover(rover, plateau, instructions);
+        System.out.println();
 
         System.out.println("Rover final position: " + plateau.getPlateauRoverPositions().get(rover));
-
+        System.out.println("Mission complete!");
         scanner.close();
     }
 }
