@@ -2,9 +2,10 @@ package org.example.parse;
 
 public class PlateauInitialisationParser {
     public static int extractXDimension(String input){
+        int defaultValue = 0;
 
         if (input == null) {
-            return 0;
+            return defaultValue;
         }
 
         String[] splitInput = input.split(" ");
@@ -19,13 +20,15 @@ public class PlateauInitialisationParser {
                 //do nothing
             }
         }
-        return 0;
+        return defaultValue;
     };
 
     public static int extractYDimension(String input){
 
+        int defaultValue = 0;
+
         if (input == null) {
-            return 0;
+            return defaultValue;
         }
 
         String[] splitInput = input.split(" ");
@@ -46,7 +49,7 @@ public class PlateauInitialisationParser {
                 //do nothing
             }
         }
-        return 0;
+        return defaultValue;
     };
 
 }

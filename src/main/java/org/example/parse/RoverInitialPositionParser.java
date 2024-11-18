@@ -3,8 +3,10 @@ package org.example.parse;
 public class RoverInitialPositionParser {
     public static int extractXCoordinate(String input){
 
+        int defaultValue = 0;
+
         if (input == null) {
-            return 0;
+            return defaultValue;
         }
 
         String[] splitInput = input.split(" ");
@@ -19,13 +21,15 @@ public class RoverInitialPositionParser {
                 //do nothing
             }
         }
-        return 0;
+        return defaultValue;
     };
 
     public static int extractYCoordinate(String input){
 
+        int defaultValue = 0;
+
         if (input == null) {
-            return 0;
+            return defaultValue;
         }
 
         String[] splitInput = input.split(" ");
@@ -46,13 +50,15 @@ public class RoverInitialPositionParser {
                 //do nothing
             }
         }
-        return 0;
+        return defaultValue;
     };
 
     public static Direction extractDirection(String input) {
 
+        Direction defaultValue = Direction.N;
+
         if (input == null) {
-            return Direction.N;
+            return defaultValue;
         }
 
         String[] splitInput = input.split(" ");
@@ -72,6 +78,6 @@ public class RoverInitialPositionParser {
             }
         }
 
-        return Direction.N;
+        return defaultValue;
     }
 }
