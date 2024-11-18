@@ -45,7 +45,7 @@ public abstract class UI {
             System.out.println("Plateau initial Y dimension: " + provisionalYDimension);
             System.out.println();
             System.out.println("If you are happy to submit these values, enter Y, otherwise enter N.  If you enter N " +
-                    "You will be prompted again to enter your Plateau's initial dimensions.");
+                    "you will be prompted again to enter your Plateau's initial dimensions.");
 
             if(confirmInput(scanner)) {
                 System.out.println("Plateau initial dimensions input successfully.");
@@ -68,7 +68,7 @@ public abstract class UI {
                     "x-coordinate y-coordinate direction.  The available directions are N (North), E (East), " +
                     "S (South) or W (West) e.g. 2 3 W");
             System.out.println("Please note: only positive integers and valid directions will be accepted.  Any " +
-                    "other value will be ignored. valid directions, will be ignored. If no valid coordinate input " +
+                    "other value will be ignored. If no valid coordinate input " +
                     "is received, value will default to 0.  If no valid direction input is " +
                     "received, direction will default to N");
             String provisionalInput = scanner.nextLine();
