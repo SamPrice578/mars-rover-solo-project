@@ -1,10 +1,7 @@
-package org.example.parsing;
+package org.example.parse;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-
-public class PlateauInitialisationParser {
-    public static int extractXDimension(String input){
+public class RoverInitialPositionParser {
+    public static int extractXCoordinate(String input){
 
         if (input == null) {
             return 0;
@@ -25,7 +22,7 @@ public class PlateauInitialisationParser {
         return 0;
     };
 
-    public static int extractYDimension(String input){
+    public static int extractYCoordinate(String input){
 
         if (input == null) {
             return 0;
@@ -52,4 +49,29 @@ public class PlateauInitialisationParser {
         return 0;
     };
 
+    public static Direction extractDirection(String input) {
+
+        if (input == null) {
+            return Direction.N;
+        }
+
+        String[] splitInput = input.split(" ");
+
+        for (String string : splitInput) {
+            switch (string.toUpperCase()) {
+                case "N":
+                    return Direction.N;
+                case "E":
+                    return Direction.E;
+                case "S":
+                    return Direction.S;
+                case "W":
+                    return Direction.W;
+                default:
+                    break;
+            }
+        }
+
+        return Direction.N;
+    }
 }

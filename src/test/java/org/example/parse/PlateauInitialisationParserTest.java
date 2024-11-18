@@ -1,4 +1,4 @@
-package org.example.parsing;
+package org.example.parse;
 
 import static org.junit.jupiter.api.Assertions.*;
 

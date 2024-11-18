@@ -1,8 +1,6 @@
-package org.example.rovers;
+package org.example.perform;
 
-import org.example.mapping.Plateau;
-import org.example.mapping.Position;
-import org.example.parsing.Direction;
+import org.example.parse.Direction;
 
 public class Rover {
 

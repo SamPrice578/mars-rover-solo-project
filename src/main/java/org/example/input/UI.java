@@ -1,10 +1,10 @@
-package org.example.UI;
+package org.example.input;
 
-import org.example.parsing.Direction;
-import org.example.parsing.Instruction;
-import org.example.parsing.PlateauInitialisationParser;
-import org.example.parsing.RoverInitialPositionParser;
-import org.example.parsing.RoverInstructionParser;
+import org.example.parse.Direction;
+import org.example.parse.Instruction;
+import org.example.parse.PlateauInitialisationParser;
+import org.example.parse.RoverInitialPositionParser;
+import org.example.parse.RoverInstructionParser;
 
 import java.util.ArrayList;
 import java.util.Scanner;

@@ -1,4 +1,4 @@
-package org.example.mapping;
+package org.example.perform;
 
 public class PlateauSize {
     private int x;

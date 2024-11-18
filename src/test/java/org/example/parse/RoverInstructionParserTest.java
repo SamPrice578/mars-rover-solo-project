@@ -1,4 +1,4 @@
-package org.example.parsing;
+package org.example.parse;
 
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;

@@ -1,10 +1,10 @@
-package org.example.setup;
+package org.example.deliver;
 
-import org.example.mapping.Plateau;
-import org.example.mapping.PlateauSize;
-import org.example.mapping.Position;
-import org.example.rovers.Rover;
-import org.example.parsing.Direction;
+import org.example.perform.Plateau;
+import org.example.perform.PlateauSize;
+import org.example.perform.Position;
+import org.example.perform.Rover;
+import org.example.parse.Direction;
 
 public class PlateauInitialiser {
     public static Plateau initialisePlateau (int xDimension, int yDimension) {

@@ -1,8 +1,8 @@
-package org.example.instruction;
+package org.example.deliver;
 
-import org.example.parsing.Instruction;
-import org.example.mapping.Plateau;
-import org.example.rovers.Rover;
+import org.example.parse.Instruction;
+import org.example.perform.Plateau;
+import org.example.perform.Rover;
 
 import java.util.ArrayList;
 

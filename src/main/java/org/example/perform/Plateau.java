@@ -1,7 +1,6 @@
-package org.example.mapping;
+package org.example.perform;
 
-import org.example.parsing.Direction;
-import org.example.rovers.Rover;
+import org.example.parse.Direction;
 
 import java.util.HashMap;
 import java.util.Map;

@@ -1,6 +1,6 @@
-package org.example.mapping;
+package org.example.perform;
 
-import org.example.parsing.Direction;
+import org.example.parse.Direction;
 
 public class Position {
     private int x;

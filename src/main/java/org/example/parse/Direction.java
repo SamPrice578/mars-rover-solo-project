@@ -1,4 +1,4 @@
-package org.example.parsing;
+package org.example.parse;
 
 public enum Direction {
     N,
