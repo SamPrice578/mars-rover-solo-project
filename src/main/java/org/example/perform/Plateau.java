@@ -25,7 +25,7 @@ public class Plateau {
         if (position.getX() > this.plateauSize.getX() || position.getY() > this.plateauSize.getY()) {
             System.out.println("Rover not added to Plateau: position is beyond the " +
                     "limits of the plateau.  Plateau size is: " + this.plateauSize +
-                    " and the input position for the rover is: " + position);
+                    " and the input position for the Rover is: " + position);
             return;
         }
 
@@ -46,7 +46,7 @@ public class Plateau {
         }
 
         if (newX > plateauSize.getX()) {
-            System.out.println("Rover position not updated: Rover X coordinate cannot be updated to number beyond" +
+            System.out.println("Rover position not updated: Rover X coordinate cannot be updated to number beyond " +
                     "the limits of the plateau.  Plateau size is: " + this.plateauSize +
                     " and the input x coordinate is: " + newX);
             return;
@@ -73,7 +73,7 @@ public class Plateau {
         }
 
         if (newY > plateauSize.getY()) {
-            System.out.println("Rover position not updated: Y coordinate cannot be beyond" +
+            System.out.println("Rover position not updated: Y coordinate cannot be beyond " +
                     "the limits of the plateau.  Plateau size is: " + this.plateauSize +
                     " and the input y coordinate is: " + newY);
             return;
