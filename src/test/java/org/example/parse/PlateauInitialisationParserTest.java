@@ -10,11 +10,10 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractXDimension returns 0 when passed null input string")
     public void testExtractXDimensionWhenNull() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
         int expectedResult = 0;
 
         //Act
-        int result = testParser.extractXDimension(null);
+        int result = PlateauInitialisationParser.extractXDimension(null);
 
         //Assert
         assertEquals(expectedResult, result);
@@ -24,11 +23,10 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractXDimension returns 0 when passed empty input string")
     public void testExtractXDimensionWhenEmpty() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
         int expectedResult = 0;
 
         //Act
-        int result = testParser.extractXDimension("");
+        int result = PlateauInitialisationParser.extractXDimension("");
 
         //Assert
         assertEquals(expectedResult, result);
@@ -38,14 +36,13 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractXDimension returns integer which ignores unrecognised strings")
     public void testExtractXDimensionWhenUnrecognised() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
         int expectedResult = 0;
 
         //Act
-        int result1 = testParser.extractXDimension("a b 1 2");
-        int result2 = testParser.extractXDimension(") 10 aa 20");
-        int result3 = testParser.extractXDimension("a !! 100 @ 200");
-        int result4 = testParser.extractXDimension("a bb ### 1000 2000 #");
+        int result1 = PlateauInitialisationParser.extractXDimension("a b 1 2");
+        int result2 = PlateauInitialisationParser.extractXDimension(") 10 aa 20");
+        int result3 = PlateauInitialisationParser.extractXDimension("a !! 100 @ 200");
+        int result4 = PlateauInitialisationParser.extractXDimension("a bb ### 1000 2000 #");
 
         //Assert
         assertAll(
@@ -60,14 +57,13 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractXDimension returns integer which ignores negative integers")
     public void testExtractXDimensionWhenNegative() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
         int expectedResult = 0;
 
         //Act
-        int result1 = testParser.extractXDimension("-1 1 2");
-        int result2 = testParser.extractXDimension("-2 10 -33 20");
-        int result3 = testParser.extractXDimension("-4 -55 100 -22 200");
-        int result4 = testParser.extractXDimension("-66 -7 -1000 1000 2000 -55");
+        int result1 = PlateauInitialisationParser.extractXDimension("-1 1 2");
+        int result2 = PlateauInitialisationParser.extractXDimension("-2 10 -33 20");
+        int result3 = PlateauInitialisationParser.extractXDimension("-4 -55 100 -22 200");
+        int result4 = PlateauInitialisationParser.extractXDimension("-66 -7 -1000 1000 2000 -55");
 
         //Assert
         assertAll(
@@ -82,12 +78,11 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractXDimension returns correct int when passed String with too many characters")
     public void testExtractXDimensionWhenTooManyChars() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
 
         //Act
-        int result1 = testParser.extractXDimension("1 2 3");
-        int result2 = testParser.extractXDimension("10 20 30 40");
-        int result3 = testParser.extractXDimension("101 201 301 a");
+        int result1 = PlateauInitialisationParser.extractXDimension("1 2 3");
+        int result2 = PlateauInitialisationParser.extractXDimension("10 20 30 40");
+        int result3 = PlateauInitialisationParser.extractXDimension("101 201 301 a");
 
         //Assert
         assertAll(
@@ -101,12 +96,11 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractXDimension returns correct int when passed appropriate string with too many spaces")
     public void testExtractXDimensionWhenTooManySpaces() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
 
         //Act
-        int result1 = testParser.extractXDimension(" 1 2");
-        int result2 = testParser.extractXDimension("10  20");
-        int result3 = testParser.extractXDimension("101  202  ");
+        int result1 = PlateauInitialisationParser.extractXDimension(" 1 2");
+        int result2 = PlateauInitialisationParser.extractXDimension("10  20");
+        int result3 = PlateauInitialisationParser.extractXDimension("101  202  ");
 
         //Assert
         assertAll(
@@ -120,12 +114,11 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractXDimension returns correct int when passed appropriate string")
     public void testExtractXDimensionWhenAppropriate() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
 
         //Act
-        int result1 = testParser.extractXDimension("1 2");
-        int result2 = testParser.extractXDimension("10 20");
-        int result3 = testParser.extractXDimension("101 202");
+        int result1 = PlateauInitialisationParser.extractXDimension("1 2");
+        int result2 = PlateauInitialisationParser.extractXDimension("10 20");
+        int result3 = PlateauInitialisationParser.extractXDimension("101 202");
 
         //Assert
         assertAll(
@@ -141,11 +134,10 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractYDimension returns 0 when passed null input string")
     public void testExtractYDimensionWhenNull() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
         int expectedResult = 0;
 
         //Act
-        int result = testParser.extractYDimension(null);
+        int result = PlateauInitialisationParser.extractYDimension(null);
 
         //Assert
         assertEquals(expectedResult, result);
@@ -155,11 +147,10 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractYDimension returns 0 when passed empty input string")
     public void testExtractYDimensionWhenEmpty() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
         int expectedResult = 0;
 
         //Act
-        int result = testParser.extractYDimension("");
+        int result = PlateauInitialisationParser.extractYDimension("");
 
         //Assert
         assertEquals(expectedResult, result);
@@ -169,12 +160,11 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractYDimension returns 0 when passed input string with one dimension")
     public void testExtractYDimensionWhenOneDimension() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
         int expectedResult = 0;
 
         //Act
-        int result1 = testParser.extractYDimension("1 ");
-        int result2 = testParser.extractYDimension(" 1");
+        int result1 = PlateauInitialisationParser.extractYDimension("1 ");
+        int result2 = PlateauInitialisationParser.extractYDimension(" 1");
 
         //Assert
         assertAll(
@@ -187,14 +177,13 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractYDimension returns integer which ignores unrecognised strings")
     public void testExtractYDimensionWhenUnrecognised() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
         int expectedResult = 0;
 
         //Act
-        int result1 = testParser.extractYDimension("a b 1 2");
-        int result2 = testParser.extractYDimension(") 10 aa 20");
-        int result3 = testParser.extractYDimension("a !! 100 @ 200");
-        int result4 = testParser.extractYDimension("a bb ### 1000 2000 #");
+        int result1 = PlateauInitialisationParser.extractYDimension("a b 1 2");
+        int result2 = PlateauInitialisationParser.extractYDimension(") 10 aa 20");
+        int result3 = PlateauInitialisationParser.extractYDimension("a !! 100 @ 200");
+        int result4 = PlateauInitialisationParser.extractYDimension("a bb ### 1000 2000 #");
 
         //Assert
         assertAll(
@@ -209,14 +198,13 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractYDimension returns integer which ignores negative integers")
     public void testExtractYDimensionWhenNegative() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
         int expectedResult = 0;
 
         //Act
-        int result1 = testParser.extractYDimension("-1 1 2");
-        int result2 = testParser.extractYDimension("-2 10 -33 20");
-        int result3 = testParser.extractYDimension("-4 -55 100 -22 200");
-        int result4 = testParser.extractYDimension("-66 -7 -1000 1000 2000 -55");
+        int result1 = PlateauInitialisationParser.extractYDimension("-1 1 2");
+        int result2 = PlateauInitialisationParser.extractYDimension("-2 10 -33 20");
+        int result3 = PlateauInitialisationParser.extractYDimension("-4 -55 100 -22 200");
+        int result4 = PlateauInitialisationParser.extractYDimension("-66 -7 -1000 1000 2000 -55");
 
         //Assert
         assertAll(
@@ -231,12 +219,11 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractYDimension returns correct int when passed String with too many characters")
     public void testExtractYDimension() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
 
         //Act
-        int result1 = testParser.extractYDimension("1 2 3");
-        int result2 = testParser.extractYDimension("10 20 30 40");
-        int result3 = testParser.extractYDimension("101 201 301 a");
+        int result1 = PlateauInitialisationParser.extractYDimension("1 2 3");
+        int result2 = PlateauInitialisationParser.extractYDimension("10 20 30 40");
+        int result3 = PlateauInitialisationParser.extractYDimension("101 201 301 a");
 
         //Assert
         assertAll(
@@ -250,12 +237,11 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractYDimension returns correct int when passed appropriate string with too many spaces")
     public void testExtractYDimensionWhenTooManySpaces() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
 
         //Act
-        int result1 = testParser.extractYDimension(" 1 2");
-        int result2 = testParser.extractYDimension("10  20");
-        int result3 = testParser.extractYDimension("101  202  ");
+        int result1 = PlateauInitialisationParser.extractYDimension(" 1 2");
+        int result2 = PlateauInitialisationParser.extractYDimension("10  20");
+        int result3 = PlateauInitialisationParser.extractYDimension("101  202  ");
 
         //Assert
         assertAll(
@@ -269,12 +255,11 @@ class PlateauInitialisationParserTest {
     @DisplayName("extractYDimension returns correct int when passed appropriate string")
     public void testExtractYDimensionWhenAppropriate() {
         //Arrange
-        PlateauInitialisationParser testParser = new PlateauInitialisationParser();
 
         //Act
-        int result1 = testParser.extractYDimension("1 2");
-        int result2 = testParser.extractYDimension("10 20");
-        int result3 = testParser.extractYDimension("101 202");
+        int result1 = PlateauInitialisationParser.extractYDimension("1 2");
+        int result2 = PlateauInitialisationParser.extractYDimension("10 20");
+        int result3 = PlateauInitialisationParser.extractYDimension("101 202");
 
         //Assert
         assertAll(

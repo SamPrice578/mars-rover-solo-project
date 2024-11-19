@@ -13,11 +13,10 @@ class RoverInstructionParserTest {
     @DisplayName("returns empty ArrayList when passed null input string")
     public void testParseRoverInstructionWhenNull() {
         //Arrange
-        RoverInstructionParser testParser = new RoverInstructionParser();
         ArrayList<Instruction> expectedResult = new ArrayList<>();
 
         //Act
-        ArrayList<Instruction> result = testParser.parseRoverInstruction(null);
+        ArrayList<Instruction> result = RoverInstructionParser.parseRoverInstruction(null);
 
         //Assert
         assertEquals(expectedResult, result);
@@ -27,11 +26,10 @@ class RoverInstructionParserTest {
     @DisplayName("returns empty ArrayList when passed empty input string")
     public void testParseRoverInstructionWhenEmpty() {
         //Arrange
-        RoverInstructionParser testParser = new RoverInstructionParser();
         ArrayList<Instruction> expectedResult = new ArrayList<>();
 
         //Act
-        ArrayList<Instruction> result = testParser.parseRoverInstruction("");
+        ArrayList<Instruction> result = RoverInstructionParser.parseRoverInstruction("");
 
         //Assert
         assertEquals(expectedResult, result);
@@ -41,12 +39,11 @@ class RoverInstructionParserTest {
     @DisplayName("returns empty ArrayList when passed blank input string")
     public void testParseRoverInstructionWhenBlank() {
         //Arrange
-        RoverInstructionParser testParser = new RoverInstructionParser();
         ArrayList<Instruction> expectedResult = new ArrayList<>();
 
         //Act
-        ArrayList<Instruction> result1 = testParser.parseRoverInstruction(" ");
-        ArrayList<Instruction> result2 = testParser.parseRoverInstruction("    ");
+        ArrayList<Instruction> result1 = RoverInstructionParser.parseRoverInstruction(" ");
+        ArrayList<Instruction> result2 = RoverInstructionParser.parseRoverInstruction("    ");
 
         //Assert
         assertEquals(expectedResult, result1);
@@ -56,8 +53,6 @@ class RoverInstructionParserTest {
     @DisplayName("returns ArrayList which ignores unrecognised instruction")
     public void testParseRoverInstructionWhenUnrecognised() {
         //Arrange
-        RoverInstructionParser testParser = new RoverInstructionParser();
-
         ArrayList<Instruction> expectedResult1 = new ArrayList<>();
 
         ArrayList<Instruction> expectedResult2 = new ArrayList<>();
@@ -74,10 +69,10 @@ class RoverInstructionParserTest {
         expectedResult4.add(Instruction.M);
 
         //Act
-        ArrayList<Instruction> result1 = testParser.parseRoverInstruction("a");
-        ArrayList<Instruction> result2 = testParser.parseRoverInstruction(")l L M");
-        ArrayList<Instruction> result3 = testParser.parseRoverInstruction("alm ! L R b M");
-        ArrayList<Instruction> result4 = testParser.parseRoverInstruction("1 2M R a M ");
+        ArrayList<Instruction> result1 = RoverInstructionParser.parseRoverInstruction("a");
+        ArrayList<Instruction> result2 = RoverInstructionParser.parseRoverInstruction(")l L M");
+        ArrayList<Instruction> result3 = RoverInstructionParser.parseRoverInstruction("alm ! L R b M");
+        ArrayList<Instruction> result4 = RoverInstructionParser.parseRoverInstruction("1 2M R a M ");
 
         //Assert
         assertAll(
@@ -92,8 +87,6 @@ class RoverInstructionParserTest {
     @DisplayName("returns correct int when passed appropriate string with too many spaces")
     public void testParseRoverInstructionWhenTooManySpaces() {
         //Arrange
-        RoverInstructionParser testParser = new RoverInstructionParser();
-
         ArrayList<Instruction> expectedResult1 = new ArrayList<>();
         expectedResult1.add(Instruction.M);
         expectedResult1.add(Instruction.L);
@@ -110,9 +103,9 @@ class RoverInstructionParserTest {
         expectedResult3.add(Instruction.L);
 
         //Act
-        ArrayList<Instruction> result1 = testParser.parseRoverInstruction("  M L R");
-        ArrayList<Instruction> result2 = testParser.parseRoverInstruction("L  R  M");
-        ArrayList<Instruction> result3 = testParser.parseRoverInstruction("R M  L  ");
+        ArrayList<Instruction> result1 = RoverInstructionParser.parseRoverInstruction("  M L R");
+        ArrayList<Instruction> result2 = RoverInstructionParser.parseRoverInstruction("L  R  M");
+        ArrayList<Instruction> result3 = RoverInstructionParser.parseRoverInstruction("R M  L  ");
 
         //Assert
         assertAll(
@@ -126,8 +119,6 @@ class RoverInstructionParserTest {
     @DisplayName("returns correct ArrayList when passed appropriate string with incorrect case")
     public void testParseRoverInstructionIncorrectCase() {
         //Arrange
-        RoverInstructionParser testParser = new RoverInstructionParser();
-
         ArrayList<Instruction> expectedResult1 = new ArrayList<>();
         expectedResult1.add(Instruction.L);
         expectedResult1.add(Instruction.R);
@@ -150,9 +141,9 @@ class RoverInstructionParserTest {
         expectedResult3.add(Instruction.L);
 
         //Act
-        ArrayList<Instruction> result1 = testParser.parseRoverInstruction("l r m");
-        ArrayList<Instruction> result2 = testParser.parseRoverInstruction("L l R r M m");
-        ArrayList<Instruction> result3 = testParser.parseRoverInstruction("l l L L l l");
+        ArrayList<Instruction> result1 = RoverInstructionParser.parseRoverInstruction("l r m");
+        ArrayList<Instruction> result2 = RoverInstructionParser.parseRoverInstruction("L l R r M m");
+        ArrayList<Instruction> result3 = RoverInstructionParser.parseRoverInstruction("l l L L l l");
 
         //Assert
         assertAll(
@@ -166,8 +157,6 @@ class RoverInstructionParserTest {
     @DisplayName("returns correct Arraylist when passed appropriate string with one instruction")
     public void testParseRoverInstructionWhenAppropriateSingle() {
         //Arrange
-        RoverInstructionParser testParser = new RoverInstructionParser();
-
         ArrayList<Instruction> expectedResult1 = new ArrayList<>();
         expectedResult1.add(Instruction.L);
 
@@ -178,9 +167,9 @@ class RoverInstructionParserTest {
         expectedResult3.add(Instruction.M);
 
         //Act
-        ArrayList<Instruction> result1 = testParser.parseRoverInstruction("L");
-        ArrayList<Instruction> result2 = testParser.parseRoverInstruction("R");
-        ArrayList<Instruction> result3 = testParser.parseRoverInstruction("M");
+        ArrayList<Instruction> result1 = RoverInstructionParser.parseRoverInstruction("L");
+        ArrayList<Instruction> result2 = RoverInstructionParser.parseRoverInstruction("R");
+        ArrayList<Instruction> result3 = RoverInstructionParser.parseRoverInstruction("M");
 
         //Assert
         assertAll(
@@ -194,8 +183,6 @@ class RoverInstructionParserTest {
     @DisplayName("returns correct Arraylist when passed appropriate string with multiple instructions")
     public void testParseRoverInstructionWhenAppropriateMultiple() {
         //Arrange
-        RoverInstructionParser testParser = new RoverInstructionParser();
-
         ArrayList<Instruction> expectedResult1 = new ArrayList<>();
         expectedResult1.add(Instruction.L);
         expectedResult1.add(Instruction.R);
@@ -231,10 +218,10 @@ class RoverInstructionParserTest {
 
 
         //Act
-        ArrayList<Instruction> result1 = testParser.parseRoverInstruction("L R M");
-        ArrayList<Instruction> result2 = testParser.parseRoverInstruction("L M R M L M R M");
-        ArrayList<Instruction> result3 = testParser.parseRoverInstruction("L L L L R R R R");
-        ArrayList<Instruction> result4 = testParser.parseRoverInstruction("M M M M M M");
+        ArrayList<Instruction> result1 = RoverInstructionParser.parseRoverInstruction("L R M");
+        ArrayList<Instruction> result2 = RoverInstructionParser.parseRoverInstruction("L M R M L M R M");
+        ArrayList<Instruction> result3 = RoverInstructionParser.parseRoverInstruction("L L L L R R R R");
+        ArrayList<Instruction> result4 = RoverInstructionParser.parseRoverInstruction("M M M M M M");
 
         //Assert
         assertAll(
