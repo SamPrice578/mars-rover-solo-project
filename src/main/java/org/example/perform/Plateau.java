@@ -34,80 +34,58 @@ public class Plateau {
         System.out.println("Rover added to Plateau");
     }
 
-    public void updateRoverXCoordinate(Rover rover, int newX) {
+    private boolean roverNullOrMissingOrCoordinateNegative(Rover rover, int coordinate) {
         if (rover == null) {
             System.out.println("Rover position not updated: input Rover cannot be null.");
-            return;
+            return true;
+        } else if (!plateauRoverPositions.containsKey(rover)) {
+            System.out.println("Rover position not updated: Rover cannot be found on the plateau.");
+            return true;
+        } else if (coordinate < 0) {
+            System.out.println("Rover position not updated: coordinate cannot be negative.");
+            return true;
+        } else {
+            return false;
         }
+    }
 
-        if (newX < 0) {
-            System.out.println("Rover position not updated: X coordinate cannot be negative.");
-            return;
-        }
-
-        if (newX > plateauSize.getX()) {
+    public void updateRoverXCoordinate(Rover rover, int newX) {
+        if (roverNullOrMissingOrCoordinateNegative(rover, newX)) {
+            //do nothing, since souts are contained in canUpdatePosition
+        } else if (newX > plateauSize.getX()) {
             System.out.println("Rover position not updated: Rover X coordinate cannot be updated to number beyond " +
                     "the limits of the plateau.  Plateau size is: " + this.plateauSize +
                     " and the input x coordinate is: " + newX);
-            return;
+        } else {
+            plateauRoverPositions.get(rover).setX(newX);
+            System.out.println("Updated Rover position: " + this.plateauRoverPositions.get(rover));
         }
-
-        if (!plateauRoverPositions.containsKey(rover)) {
-            System.out.println("Rover position not updated: Rover cannot be found on the Plateau.");
-            return;
-        }
-
-        plateauRoverPositions.get(rover).setX(newX);
-        System.out.println("Updated Rover position: " + this.plateauRoverPositions.get(rover));
     }
 
     public void updateRoverYCoordinate(Rover rover, int newY) {
-        if (rover == null) {
-            System.out.println("Rover position not updated: input Rover cannot be null.");
-            return;
-        }
-
-        if (newY < 0) {
-            System.out.println("Rover position not updated: Y coordinate cannot be negative.");
-            return;
-        }
-
-        if (newY > plateauSize.getY()) {
+        if (roverNullOrMissingOrCoordinateNegative(rover, newY)) {
+            //do nothing, since souts are contained in canUpdatePosition
+        } else if (newY > plateauSize.getY()) {
             System.out.println("Rover position not updated: Y coordinate cannot be beyond " +
                     "the limits of the plateau.  Plateau size is: " + this.plateauSize +
                     " and the input y coordinate is: " + newY);
-            return;
+        } else {
+            plateauRoverPositions.get(rover).setY(newY);
+            System.out.println("Updated Rover position: " + this.plateauRoverPositions.get(rover));
         }
-
-        if (!plateauRoverPositions.containsKey(rover)) {
-            System.out.println("Rover position not updated: Rover cannot be found on the Plateau.");
-            return;
-        }
-
-        plateauRoverPositions.get(rover).setY(newY);
-
-        System.out.println("Updated Rover position: " + this.plateauRoverPositions.get(rover));
     }
 
     public void updateRoverDirection(Rover rover, Direction newDirection) {
         if (rover == null) {
             System.out.println("Rover position not updated: input Rover cannot be null.");
-            return;
-        }
-
-        if (newDirection == null) {
+        } else if (newDirection == null) {
             System.out.println("Rover position not updated: input direction cannot be null.");
-            return;
-        }
-
-        if (!plateauRoverPositions.containsKey(rover)) {
+        } else if (!plateauRoverPositions.containsKey(rover)) {
             System.out.println("Rover position not updated: Rover cannot be found on the Plateau.");
-            return;
+        } else {
+            plateauRoverPositions.get(rover).setDirection(newDirection);
+            System.out.println("Updated Rover position: " + this.plateauRoverPositions.get(rover));
         }
-
-        plateauRoverPositions.get(rover).setDirection(newDirection);
-
-        System.out.println("Updated Rover position: " + this.plateauRoverPositions.get(rover));
     }
 
     public void removeRoverFromPlateau(Rover rover) {
