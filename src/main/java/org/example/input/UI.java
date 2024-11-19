@@ -11,28 +11,6 @@ import java.util.Scanner;
 
 public abstract class UI {
 
-    public static void introductoryMessage() {
-        System.out.println("---Welcome to the Northcoder Mars Rover Launch!---");
-        System.out.println();
-        System.out.println("You will soon be prompted to enter three piece of information:");
-        System.out.println("  - the size of the plateau on which your rover will operate");
-        System.out.println("  - the initial position of the rover on the plateau");
-        System.out.println("  - the instructions you wish to pass to the rover");
-        System.out.println();
-        System.out.println("Once you have confirmed your inputs, the mission will launched:");
-        System.out.println("  - the plateau dimensions will be set");
-        System.out.println("  - the rover will be placed in its initial position");
-        System.out.println("  - the instructions will be sent to the rover");
-        System.out.println();
-        System.out.println("A log will be printed of all the instructions sent to the rover, and the rover's updated position having completed this instruction.");
-        System.out.println("The final position of the rover will then be printed.");
-        System.out.println();
-        System.out.println("Let's begin!");
-        System.out.println();
-        System.out.println("-------------------------");
-        System.out.println();
-    }
-
     public static String inputInitialDimensions(Scanner scanner) {
 
         PlateauInitialisationParser plateauInitialisationParser = new PlateauInitialisationParser();
@@ -43,20 +21,21 @@ public abstract class UI {
             System.out.println("Please enter your Plateau's initial dimensions in the format: " +
                     "x-dimension y-dimension e.g. 5 5");
             System.out.println("Please note: only positive integers will be accepted.  Any other value will be ignored. " +
-                    "If no valid input is received, value will default to 0.");
+                    "If no valid input is received, value will default to 0");
             String provisionalInput = scanner.nextLine();
             int provisionalXDimension = plateauInitialisationParser.extractXDimension(provisionalInput);
             int provisionalYDimension = plateauInitialisationParser.extractYDimension(provisionalInput);
 
+            System.out.println();
             System.out.println("The input will be interpreted by the parser as follows:");
             System.out.println("Plateau initial X dimension: " + provisionalXDimension);
             System.out.println("Plateau initial Y dimension: " + provisionalYDimension);
             System.out.println();
             System.out.println("If you are happy to submit these values, enter Y, otherwise enter N.  If you enter N " +
-                    "you will be prompted again to enter your Plateau's initial dimensions.");
+                    "you will be prompted again to enter your Plateau's initial dimensions");
 
             if(confirmInput(scanner)) {
-                System.out.println("Plateau initial dimensions input successfully.");
+                System.out.println("Plateau initial dimensions input successfully");
                 System.out.println();
                 return provisionalInput;
             } else {
@@ -84,16 +63,17 @@ public abstract class UI {
             int provisionalYCoordinate = roverInitialPositionParser.extractYCoordinate(provisionalInput);
             Direction provisionalDirection = roverInitialPositionParser.extractDirection(provisionalInput);
 
+            System.out.println();
             System.out.println("The input will be interpreted by the parser as follows:");
             System.out.println("Rover initial X coordinate: " + provisionalXCoordinate);
             System.out.println("Rover initial Y coordinate: " + provisionalYCoordinate);
             System.out.println("Rover initial direction: " + provisionalDirection);
             System.out.println();
             System.out.println("If you are happy to submit these values, enter Y, otherwise enter N.  If you enter N " +
-                    "You will be prompted again to enter your Plateau's initial dimensions.");
+                    "You will be prompted again to enter your Plateau's initial dimensions");
 
             if(confirmInput(scanner)) {
-                System.out.println("Rover initial position input successfully.");
+                System.out.println("Rover initial position input successfully");
                 System.out.println();
                 return provisionalInput;
             } else {
@@ -114,15 +94,16 @@ public abstract class UI {
                     "rotate 90 degrees anti-clockwise), R (turn right i.e. rotate 90 degrees clockwise), " +
                     "M (move i.e. move one coordinate point in the direction the Rover is facing) " +
                     "e.g. L M R M L L M M M");
-            System.out.println("Please note: all invalid instructions are ignored by the parser.");
+            System.out.println("Please note: all invalid instructions are ignored by the parser");
             String provisionalInput = scanner.nextLine();
             ArrayList<Instruction> provisionalInstructions = roverInstructionParser.parseRoverInstruction(provisionalInput);
 
+            System.out.println();
             System.out.println("The input will be interpreted by the parser as follows:");
             System.out.println("Rover instructions: " + provisionalInstructions);
             System.out.println();
             System.out.println("If you are happy to submit these values, enter Y, otherwise enter N.  If you enter N " +
-                    "You will be prompted again to enter your Plateau's initial dimensions.");
+                    "You will be prompted again to enter your Plateau's initial dimensions");
 
             if(confirmInput(scanner)) {
                 System.out.println("Rover instructions input successfully.");
@@ -141,6 +122,7 @@ public abstract class UI {
             if(input.equals("Y")) {
                 return true;
             } else if (input.equals("N")) {
+                System.out.println();
                 return false;
             } else {
                 System.out.println("Input not recognised.  Please enter the single character 'Y' or 'N'");
@@ -149,8 +131,4 @@ public abstract class UI {
         return false;
     }
 
-    public static void concludingMessage() {
-        System.out.println("Mission complete!");
-        System.out.println();
-    }
 }

@@ -13,19 +13,19 @@ public class PlateauInitialiser {
         PlateauSize plateauSize = new PlateauSize(xDimension, yDimension);
         Plateau plateau = new Plateau(plateauSize);
 
-        System.out.println("Plateau initialised");
+        System.out.println("Plateau initialisation complete");
         System.out.println();
         return plateau;
     }
 
     public static Rover addRoverToPlateau (Plateau plateau, int xCoordinate, int yCoordinate, Direction direction) {
-        System.out.println("Placing Rover on Plateau...");
+        System.out.println("Placing Rover in initial position...");
 
         Rover rover = new Rover();
         Position position = new Position(xCoordinate, yCoordinate, direction);
         plateau.addRoverToPlateau(rover, position);
 
-        System.out.println("Rover successfully landed");
+        System.out.println("Rover initial positioning complete");
         System.out.println();
         return rover;
     }

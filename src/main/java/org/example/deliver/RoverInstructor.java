@@ -35,6 +35,7 @@ public class RoverInstructor {
                     break;
             }
         }
+        System.out.println("Rover instruction complete");
         System.out.println();
         System.out.println("Rover final position: " + plateau.getPlateauRoverPositions().get(rover));
         System.out.println();
