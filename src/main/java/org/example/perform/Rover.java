@@ -15,25 +15,18 @@ public class Rover {
 
         Direction roverDirection = roverPosition.getDirection();
 
-        int newY;
-        int newX;
-
         switch (roverDirection) {
             case N:
-                newY = roverPosition.getY() + 1;
-                plateau.updateRoverYCoordinate(this, newY);
+                plateau.updateRoverYCoordinate(this, 1);
                 break;
             case E:
-                newX = roverPosition.getX() + 1;
-                plateau.updateRoverXCoordinate(this, newX);
+                plateau.updateRoverXCoordinate(this, 1);
                 break;
             case S:
-                newY = roverPosition.getY() - 1;
-                plateau.updateRoverYCoordinate(this, newY);
+                plateau.updateRoverYCoordinate(this, -1);
                 break;
             case W:
-                newX = roverPosition.getX() - 1;
-                plateau.updateRoverXCoordinate(this, newX);
+                plateau.updateRoverXCoordinate(this, -1);
                 break;
             default:
                 break;
