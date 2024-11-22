@@ -304,31 +304,8 @@ class PlateauTest {
     }
 
     @Test
-    @DisplayName("updateRoverXCoordinate makes no update when passed y coordinate which is the same as the current y coordinate for the rover")
-    void testUpdateRoverXCoordinateSame() {
-        //Arrange
-        PlateauSize testPlateauSize = new PlateauSize(5,5);
-        Plateau testPlateau = new Plateau(testPlateauSize);
-
-        Rover testRover = new Rover();
-        Position testPosition = new Position(1,2, Direction.N);
-
-        testPlateau.addRoverToPlateau(testRover, testPosition);
-
-        //Act
-        testPlateau.updateRoverXCoordinate(testRover, 1);
-
-        //Assert
-        assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
-        );
-    }
-
-    @Test
-    @DisplayName("updateRoverXCoordinate updates correctly when passed appropriate rover and coordinate")
-    void testUpdateRoverXCoordinateAppropriateRoverAndCoordinate() {
+    @DisplayName("updateRoverXCoordinate updates correctly when passed appropriate rover and positive increment")
+    void testUpdateRoverXCoordinateAppropriateRoverAndPositiveIncrement() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -340,6 +317,29 @@ class PlateauTest {
 
         //Act
         testPlateau.updateRoverXCoordinate(testRover, 2);
+
+        //Assert
+        assertAll(
+                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
+        );
+    }
+
+    @Test
+    @DisplayName("updateRoverXCoordinate updates correctly when passed appropriate rover and negative increment")
+    void testUpdateRoverXCoordinateAppropriateRoverAndNegativeIncrement() {
+        //Arrange
+        PlateauSize testPlateauSize = new PlateauSize(5,5);
+        Plateau testPlateau = new Plateau(testPlateauSize);
+
+        Rover testRover = new Rover();
+        Position testPosition = new Position(5,2, Direction.N);
+
+        testPlateau.addRoverToPlateau(testRover, testPosition);
+
+        //Act
+        testPlateau.updateRoverXCoordinate(testRover, -3);
 
         //Assert
         assertAll(
@@ -353,7 +353,7 @@ class PlateauTest {
     @DisplayName("updateRoverXCoordinate updates correctly when passed consecutively updates")
     void testUpdateRoverXCoordinateConsecutive() {
         //Arrange
-        PlateauSize testPlateauSize = new PlateauSize(5,5);
+        PlateauSize testPlateauSize = new PlateauSize(20,20);
         Plateau testPlateau = new Plateau(testPlateauSize);
 
         Rover testRover = new Rover();
@@ -362,21 +362,23 @@ class PlateauTest {
         testPlateau.addRoverToPlateau(testRover, testPosition);
 
         //Act
-        testPlateau.updateRoverXCoordinate(testRover, 2);
         testPlateau.updateRoverXCoordinate(testRover, 3);
         testPlateau.updateRoverXCoordinate(testRover, 4);
+        testPlateau.updateRoverXCoordinate(testRover, -1);
+        testPlateau.updateRoverXCoordinate(testRover, -2);
+
 
         //Assert
         assertAll(
-                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
+                () -> assertEquals(5, testPlateau.getPlateauRoverPositions().get(testRover).getX()),
                 () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover).getY()),
                 () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover).getDirection())
         );
     }
 
     @Test
-    @DisplayName("updateRoverXCoordinate does not update when passed coordinate which would take the Rover off the Plateau")
-    void testUpdateRoverXCoordinateOffPlateau() {
+    @DisplayName("updateRoverXCoordinate does not update when increment would take the Rover off the Plateau")
+    void testUpdateRoverXIncrementOffPlateau() {
         //Arrange
         PlateauSize testPlateauSize = new PlateauSize(5,5);
         Plateau testPlateau = new Plateau(testPlateauSize);
@@ -392,7 +394,7 @@ class PlateauTest {
 
         //Act
         testPlateau.updateRoverXCoordinate(testRover1, 6);
-        testPlateau.updateRoverXCoordinate(testRover2, -1);
+        testPlateau.updateRoverXCoordinate(testRover2, -4);
 
         //Assert
         assertAll(
