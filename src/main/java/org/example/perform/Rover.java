@@ -2,11 +2,11 @@ package org.example.perform;
 
 import org.example.parse.Direction;
 
-public class Rover {
+public class Rover implements Instructable {
 
     public void move(Plateau plateau) {
 
-        Position roverPosition = plateau.getPlateauRoverPositions().get(this);
+        Position roverPosition = plateau.getPlateauInstructablesPositions().get(this);
 
         if (roverPosition == null) {
             System.out.println("Rover cannot move: Rover position cannot be null.");
@@ -34,7 +34,7 @@ public class Rover {
     }
 
     public void turnLeft(Plateau plateau) {
-        Position roverPosition = plateau.getPlateauRoverPositions().get(this);
+        Position roverPosition = plateau.getPlateauInstructablesPositions().get(this);
 
         if (roverPosition == null) {
             System.out.println("Rover cannot move: Rover position cannot be null.");
@@ -62,7 +62,7 @@ public class Rover {
     }
 
     public void turnRight(Plateau plateau) {
-        Position roverPosition = plateau.getPlateauRoverPositions().get(this);
+        Position roverPosition = plateau.getPlateauInstructablesPositions().get(this);
 
         if (roverPosition == null) {
             System.out.println("Rover cannot move: Rover position cannot be null.");

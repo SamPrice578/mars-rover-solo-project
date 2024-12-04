@@ -37,21 +37,21 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover1).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauInstructablesPositions().get(testRover1).getDirection()),
 
-                () -> assertEquals(5, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
-                () -> assertEquals(Direction.E, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+                () -> assertEquals(5, testPlateau.getPlateauInstructablesPositions().get(testRover2).getX()),
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.E, testPlateau.getPlateauInstructablesPositions().get(testRover2).getDirection()),
 
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover3).getX()),
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauInstructablesPositions().get(testRover3).getDirection()),
 
-                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
-                () -> assertEquals(Direction.W, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
+                () -> assertEquals(4, testPlateau.getPlateauInstructablesPositions().get(testRover4).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.W, testPlateau.getPlateauInstructablesPositions().get(testRover4).getDirection())
         );
     }
 
@@ -97,21 +97,21 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover1).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauInstructablesPositions().get(testRover1).getDirection()),
 
-                () -> assertEquals(5, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
-                () -> assertEquals(Direction.E, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+                () -> assertEquals(5, testPlateau.getPlateauInstructablesPositions().get(testRover2).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.E, testPlateau.getPlateauInstructablesPositions().get(testRover2).getDirection()),
 
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
-                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover3).getX()),
+                () -> assertEquals(4, testPlateau.getPlateauInstructablesPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauInstructablesPositions().get(testRover3).getDirection()),
 
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
-                () -> assertEquals(Direction.W, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover4).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.W, testPlateau.getPlateauInstructablesPositions().get(testRover4).getDirection())
         );
     }
 
@@ -153,21 +153,21 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
-                () -> assertEquals(10, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover1).getX()),
+                () -> assertEquals(10, testPlateau.getPlateauInstructablesPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauInstructablesPositions().get(testRover1).getDirection()),
 
-                () -> assertEquals(10, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
-                () -> assertEquals(Direction.E, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+                () -> assertEquals(10, testPlateau.getPlateauInstructablesPositions().get(testRover2).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.E, testPlateau.getPlateauInstructablesPositions().get(testRover2).getDirection()),
 
-                () -> assertEquals(8, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
-                () -> assertEquals(0, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+                () -> assertEquals(8, testPlateau.getPlateauInstructablesPositions().get(testRover3).getX()),
+                () -> assertEquals(0, testPlateau.getPlateauInstructablesPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauInstructablesPositions().get(testRover3).getDirection()),
 
-                () -> assertEquals(0, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
-                () -> assertEquals(Direction.W, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
+                () -> assertEquals(0, testPlateau.getPlateauInstructablesPositions().get(testRover4).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.W, testPlateau.getPlateauInstructablesPositions().get(testRover4).getDirection())
         );
     }
 
@@ -200,21 +200,21 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
-                () -> assertEquals(Direction.W, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover1).getX()),
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.W, testPlateau.getPlateauInstructablesPositions().get(testRover1).getDirection()),
 
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover2).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauInstructablesPositions().get(testRover2).getDirection()),
 
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
-                () -> assertEquals(Direction.E, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover3).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.E, testPlateau.getPlateauInstructablesPositions().get(testRover3).getDirection()),
 
-                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
-                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
+                () -> assertEquals(4, testPlateau.getPlateauInstructablesPositions().get(testRover4).getX()),
+                () -> assertEquals(4, testPlateau.getPlateauInstructablesPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauInstructablesPositions().get(testRover4).getDirection())
         );
     }
 
@@ -260,21 +260,21 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover1).getX()),
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauInstructablesPositions().get(testRover1).getDirection()),
 
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover2).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauInstructablesPositions().get(testRover2).getDirection()),
 
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover3).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauInstructablesPositions().get(testRover3).getDirection()),
 
-                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
-                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
+                () -> assertEquals(4, testPlateau.getPlateauInstructablesPositions().get(testRover4).getX()),
+                () -> assertEquals(4, testPlateau.getPlateauInstructablesPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauInstructablesPositions().get(testRover4).getDirection())
         );
     }
 
@@ -307,21 +307,21 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
-                () -> assertEquals(Direction.E, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover1).getX()),
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.E, testPlateau.getPlateauInstructablesPositions().get(testRover1).getDirection()),
 
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover2).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauInstructablesPositions().get(testRover2).getDirection()),
 
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
-                () -> assertEquals(Direction.W, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover3).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.W, testPlateau.getPlateauInstructablesPositions().get(testRover3).getDirection()),
 
-                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
-                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
+                () -> assertEquals(4, testPlateau.getPlateauInstructablesPositions().get(testRover4).getX()),
+                () -> assertEquals(4, testPlateau.getPlateauInstructablesPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauInstructablesPositions().get(testRover4).getDirection())
         );
     }
 
@@ -367,21 +367,21 @@ class RoverTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection()),
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover1).getX()),
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauInstructablesPositions().get(testRover1).getDirection()),
 
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover2).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover2).getDirection()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover2).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover2).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauInstructablesPositions().get(testRover2).getDirection()),
 
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getX()),
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover3).getY()),
-                () -> assertEquals(Direction.S, testPlateau.getPlateauRoverPositions().get(testRover3).getDirection()),
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover3).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover3).getY()),
+                () -> assertEquals(Direction.S, testPlateau.getPlateauInstructablesPositions().get(testRover3).getDirection()),
 
-                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getX()),
-                () -> assertEquals(4, testPlateau.getPlateauRoverPositions().get(testRover4).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover4).getDirection())
+                () -> assertEquals(4, testPlateau.getPlateauInstructablesPositions().get(testRover4).getX()),
+                () -> assertEquals(4, testPlateau.getPlateauInstructablesPositions().get(testRover4).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauInstructablesPositions().get(testRover4).getDirection())
         );
     }
 }

@@ -7,7 +7,7 @@ import java.util.Map;
 
 public class Plateau {
     private final PlateauSize plateauSize;
-    private Map<Rover, Position> plateauRoverPositions = new HashMap<>();
+    private Map<Instructable, Position> plateauInstructablesPositions = new HashMap<>();
 
     public Plateau(PlateauSize plateauSize) {
         this.plateauSize = plateauSize;
@@ -29,7 +29,7 @@ public class Plateau {
             return;
         }
 
-        this.plateauRoverPositions.put(rover, position);
+        this.plateauInstructablesPositions.put(rover, position);
 
         System.out.println("Rover added to Plateau");
     }
@@ -38,7 +38,7 @@ public class Plateau {
         if (rover == null) {
             System.out.println("Rover position not updated: input Rover cannot be null.");
             return true;
-        } else if (!plateauRoverPositions.containsKey(rover)) {
+        } else if (!plateauInstructablesPositions.containsKey(rover)) {
             System.out.println("Rover position not updated: Rover cannot be found on the plateau.");
             return true;
         } else {
@@ -51,7 +51,7 @@ public class Plateau {
             //do nothing
             return;
         }
-        int currentX = plateauRoverPositions.get(rover).getX();
+        int currentX = plateauInstructablesPositions.get(rover).getX();
         int proposedX = currentX + xIncrement;
 
         if (proposedX > plateauSize.getX() || proposedX < 0) {
@@ -59,8 +59,8 @@ public class Plateau {
                     "the limits of the plateau.  Plateau size is: " + this.plateauSize +
                     " and the update would take the Rover to x coordinate: " + proposedX);
         } else {
-            plateauRoverPositions.get(rover).setX(proposedX);
-            System.out.println("Updated Rover position: " + this.plateauRoverPositions.get(rover));
+            plateauInstructablesPositions.get(rover).setX(proposedX);
+            System.out.println("Updated Rover position: " + this.plateauInstructablesPositions.get(rover));
         }
     }
 
@@ -69,7 +69,7 @@ public class Plateau {
             //do nothing
             return;
         }
-        int currentY = plateauRoverPositions.get(rover).getY();
+        int currentY = plateauInstructablesPositions.get(rover).getY();
         int proposedY = currentY + yIncrement;
 
         if (proposedY > plateauSize.getX() || proposedY < 0) {
@@ -77,8 +77,8 @@ public class Plateau {
                     "the limits of the plateau.  Plateau size is: " + this.plateauSize +
                     " and the update would take the Rover to y coordinate: " + proposedY);
         } else {
-            plateauRoverPositions.get(rover).setY(proposedY);
-            System.out.println("Updated Rover position: " + this.plateauRoverPositions.get(rover));
+            plateauInstructablesPositions.get(rover).setY(proposedY);
+            System.out.println("Updated Rover position: " + this.plateauInstructablesPositions.get(rover));
         }
     }
 
@@ -87,11 +87,11 @@ public class Plateau {
             System.out.println("Rover position not updated: input Rover cannot be null.");
         } else if (newDirection == null) {
             System.out.println("Rover position not updated: input direction cannot be null.");
-        } else if (!plateauRoverPositions.containsKey(rover)) {
+        } else if (!plateauInstructablesPositions.containsKey(rover)) {
             System.out.println("Rover position not updated: Rover cannot be found on the Plateau.");
         } else {
-            plateauRoverPositions.get(rover).setDirection(newDirection);
-            System.out.println("Updated Rover position: " + this.plateauRoverPositions.get(rover));
+            plateauInstructablesPositions.get(rover).setDirection(newDirection);
+            System.out.println("Updated Rover position: " + this.plateauInstructablesPositions.get(rover));
         }
     }
 
@@ -100,15 +100,15 @@ public class Plateau {
             System.out.println("Cannot remove null rover from plateau");
             return;
         }
-        if (this.plateauRoverPositions.containsKey(rover)) {
-            this.plateauRoverPositions.remove(rover);
+        if (this.plateauInstructablesPositions.containsKey(rover)) {
+            this.plateauInstructablesPositions.remove(rover);
         } else {
             System.out.println("cannot remove rover because it does not exist on the plateau");
         }
     }
 
-    public Map<Rover, Position> getPlateauRoverPositions() {
-        return plateauRoverPositions;
+    public Map<Instructable, Position> getPlateauInstructablesPositions() {
+        return plateauInstructablesPositions;
     }
 
     public PlateauSize getPlateauSize() {

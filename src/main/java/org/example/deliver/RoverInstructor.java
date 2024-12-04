@@ -10,7 +10,7 @@ public class RoverInstructor {
     public static void instructRover(Rover rover, Plateau plateau, ArrayList<Instruction> instructions) {
         System.out.println("Instructing Rover...");
         System.out.println(instructions);
-        System.out.println("Rover initial position: " + plateau.getPlateauRoverPositions().get(rover));
+        System.out.println("Rover initial position: " + plateau.getPlateauInstructablesPositions().get(rover));
         System.out.println();
 
         if (instructions.isEmpty()) {
@@ -37,7 +37,7 @@ public class RoverInstructor {
         }
         System.out.println("Rover instruction complete");
         System.out.println();
-        System.out.println("Rover final position: " + plateau.getPlateauRoverPositions().get(rover));
+        System.out.println("Rover final position: " + plateau.getPlateauInstructablesPositions().get(rover));
         System.out.println();
     }
 }
