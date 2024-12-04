@@ -37,9 +37,9 @@ class RoverInstructorTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(1, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
-                () -> assertEquals(2, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
-                () -> assertEquals(Direction.N, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection())
+                () -> assertEquals(1, testPlateau.getPlateauInstructablesPositions().get(testRover1).getX()),
+                () -> assertEquals(2, testPlateau.getPlateauInstructablesPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.N, testPlateau.getPlateauInstructablesPositions().get(testRover1).getDirection())
         );
     }
 
@@ -69,9 +69,9 @@ class RoverInstructorTest {
 
         //Assert
         assertAll(
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover1).getX()),
-                () -> assertEquals(3, testPlateau.getPlateauRoverPositions().get(testRover1).getY()),
-                () -> assertEquals(Direction.E, testPlateau.getPlateauRoverPositions().get(testRover1).getDirection())
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover1).getX()),
+                () -> assertEquals(3, testPlateau.getPlateauInstructablesPositions().get(testRover1).getY()),
+                () -> assertEquals(Direction.E, testPlateau.getPlateauInstructablesPositions().get(testRover1).getDirection())
         );
     }
 
